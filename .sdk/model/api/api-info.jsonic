@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://www.yomama-jokes.com/docs/"
+      }
+      description: "API for retrieving jokes by random, category, or list based on Yo Mama jokes. No authentication required."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.yomomma.info"
+        }
+      ]
+      title: "Yo Mama API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

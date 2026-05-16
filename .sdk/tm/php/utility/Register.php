@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// YoMama SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+YoMamaUtility::setRegistrar(function (YoMamaUtility $u): void {
+    $u->clean = [YoMamaClean::class, 'call'];
+    $u->done = [YoMamaDone::class, 'call'];
+    $u->make_error = [YoMamaMakeError::class, 'call'];
+    $u->feature_add = [YoMamaFeatureAdd::class, 'call'];
+    $u->feature_hook = [YoMamaFeatureHook::class, 'call'];
+    $u->feature_init = [YoMamaFeatureInit::class, 'call'];
+    $u->fetcher = [YoMamaFetcher::class, 'call'];
+    $u->make_fetch_def = [YoMamaMakeFetchDef::class, 'call'];
+    $u->make_context = [YoMamaMakeContext::class, 'call'];
+    $u->make_options = [YoMamaMakeOptions::class, 'call'];
+    $u->make_request = [YoMamaMakeRequest::class, 'call'];
+    $u->make_response = [YoMamaMakeResponse::class, 'call'];
+    $u->make_result = [YoMamaMakeResult::class, 'call'];
+    $u->make_point = [YoMamaMakePoint::class, 'call'];
+    $u->make_spec = [YoMamaMakeSpec::class, 'call'];
+    $u->make_url = [YoMamaMakeUrl::class, 'call'];
+    $u->param = [YoMamaParam::class, 'call'];
+    $u->prepare_auth = [YoMamaPrepareAuth::class, 'call'];
+    $u->prepare_body = [YoMamaPrepareBody::class, 'call'];
+    $u->prepare_headers = [YoMamaPrepareHeaders::class, 'call'];
+    $u->prepare_method = [YoMamaPrepareMethod::class, 'call'];
+    $u->prepare_params = [YoMamaPrepareParams::class, 'call'];
+    $u->prepare_path = [YoMamaPreparePath::class, 'call'];
+    $u->prepare_query = [YoMamaPrepareQuery::class, 'call'];
+    $u->result_basic = [YoMamaResultBasic::class, 'call'];
+    $u->result_body = [YoMamaResultBody::class, 'call'];
+    $u->result_headers = [YoMamaResultHeaders::class, 'call'];
+    $u->transform_request = [YoMamaTransformRequest::class, 'call'];
+    $u->transform_response = [YoMamaTransformResponse::class, 'call'];
+});

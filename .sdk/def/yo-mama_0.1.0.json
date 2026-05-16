@@ -1,0 +1,174 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Yo Mama API",
+    "description": "API for retrieving jokes by random, category, or list based on Yo Mama jokes. No authentication required.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://www.yomama-jokes.com/docs/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.yomomma.info",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get random joke",
+        "description": "Retrieves a random Yo Mama joke from any category",
+        "operationId": "getRandomJoke",
+        "tags": [
+          "Jokes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a random joke",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Joke"
+                },
+                "example": {
+                  "joke": "Yo mama is so fat, when she skips a meal, the stock market drops."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jokes": {
+      "get": {
+        "summary": "Get jokes by category",
+        "description": "Retrieves a list of Yo Mama jokes, optionally filtered by category",
+        "operationId": "getJokesByCategory",
+        "tags": [
+          "Jokes"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The category of jokes to retrieve (e.g., fat, stupid, ugly, poor, old)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "fat",
+                "stupid",
+                "ugly",
+                "poor",
+                "old",
+                "hairy",
+                "bald",
+                "tall",
+                "short",
+                "skinny"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with a list of jokes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Joke"
+                  }
+                },
+                "example": [
+                  {
+                    "joke": "Yo mama is so fat, when she skips a meal, the stock market drops."
+                  },
+                  {
+                    "joke": "Yo mama is so fat, she has her own zip code."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Get available categories",
+        "description": "Retrieves a list of all available joke categories",
+        "operationId": "getCategories",
+        "tags": [
+          "Categories"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with available categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "categories": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "categories": [
+                    "fat",
+                    "stupid",
+                    "ugly",
+                    "poor",
+                    "old",
+                    "hairy",
+                    "bald",
+                    "tall",
+                    "short",
+                    "skinny"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Joke": {
+        "type": "object",
+        "properties": {
+          "joke": {
+            "type": "string",
+            "description": "The joke text"
+          }
+        },
+        "required": [
+          "joke"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Jokes",
+      "description": "Operations for retrieving Yo Mama jokes"
+    },
+    {
+      "name": "Categories",
+      "description": "Operations for retrieving joke categories"
+    }
+  ],
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://www.yomama-jokes.com/docs/"
+  }
+}

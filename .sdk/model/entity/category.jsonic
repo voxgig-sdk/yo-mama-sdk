@@ -1,0 +1,37 @@
+# Entity: category
+
+main: kit: entity: category: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "category"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "category"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/categories"
+          parts: [
+            "categories"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

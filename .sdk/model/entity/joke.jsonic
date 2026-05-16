@@ -1,0 +1,53 @@
+# Entity: joke
+
+main: kit: entity: joke: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "joke"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "joke"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/jokes"
+          parts: [
+            "jokes"
+          ]
+          select: {
+            exist: [
+              "type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

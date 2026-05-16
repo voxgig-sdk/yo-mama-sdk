@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "category": {
+      "CATEGORY00": {
+        "category": []
+      },
+      "CATEGORY01": {
+        "category": []
+      },
+      "CATEGORY02": {
+        "category": []
+      }
+    }
+  },
+  "new": {
+    "category": {
+      "category_ref01": {
+        "category": []
+      }
+    }
+  }
+}

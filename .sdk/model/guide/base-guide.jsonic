@@ -1,0 +1,26 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 3
+  metrics: count: path: 3
+  metrics: count: method: 3
+
+  entity: category: {
+    path: "/categories": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: get_random_joke: {
+    path: "/": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: joke: {
+    path: "/jokes": {
+      op: list: method: *GET
+    }
+  }
+
+}

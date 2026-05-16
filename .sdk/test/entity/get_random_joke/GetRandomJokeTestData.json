@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "get_random_joke": {
+      "GET_RANDOM_JOKE00": {
+        "joke": "sa"
+      },
+      "GET_RANDOM_JOKE01": {
+        "joke": "s14"
+      },
+      "GET_RANDOM_JOKE02": {
+        "joke": "s1e"
+      }
+    }
+  },
+  "new": {
+    "get_random_joke": {
+      "get_random_joke_ref01": {
+        "joke": "s28"
+      }
+    }
+  }
+}

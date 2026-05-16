@@ -1,0 +1,5 @@
+# Entity Models
+
+@"category.jsonic"
+@"get_random_joke.jsonic"
+@"joke.jsonic"

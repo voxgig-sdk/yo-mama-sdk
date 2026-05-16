@@ -1,0 +1,28 @@
+# BasicGetRandomJokeFlow
+
+main: kit: flow: BasicGetRandomJokeFlow:
+{
+  entity: "get_random_joke",
+  kind: "basic",
+  name: "BasicGetRandomJokeFlow",
+  step: [
+    {
+      input: {
+        ref: "get_random_joke_ref01",
+        srcdatavar: "get_random_joke_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-get_random_joke_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetRandomJokeFlow"
+}

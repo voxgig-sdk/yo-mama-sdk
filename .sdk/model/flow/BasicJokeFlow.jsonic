@@ -1,0 +1,22 @@
+# BasicJokeFlow
+
+main: kit: flow: BasicJokeFlow:
+{
+  entity: "joke",
+  kind: "basic",
+  name: "BasicJokeFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "joke_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicJokeFlow"
+}
