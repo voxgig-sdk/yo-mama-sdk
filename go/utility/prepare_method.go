@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/yo-mama-sdk/core"
+import "github.com/voxgig-sdk/yo-mama-sdk/go/core"
 
 func prepareMethodUtil(ctx *core.Context) string {
 	opname := ctx.Op.Name

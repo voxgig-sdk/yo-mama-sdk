@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/yo-mama-sdk/core"
+	"github.com/voxgig-sdk/yo-mama-sdk/go/core"
 )
 
 type BaseFeature struct {

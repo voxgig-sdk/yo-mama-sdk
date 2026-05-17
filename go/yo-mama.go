@@ -1,10 +1,10 @@
 package voxgigyomamasdk
 
 import (
-	"github.com/voxgig-sdk/yo-mama-sdk/core"
-	"github.com/voxgig-sdk/yo-mama-sdk/entity"
-	"github.com/voxgig-sdk/yo-mama-sdk/feature"
-	_ "github.com/voxgig-sdk/yo-mama-sdk/utility"
+	"github.com/voxgig-sdk/yo-mama-sdk/go/core"
+	"github.com/voxgig-sdk/yo-mama-sdk/go/entity"
+	"github.com/voxgig-sdk/yo-mama-sdk/go/feature"
+	_ "github.com/voxgig-sdk/yo-mama-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

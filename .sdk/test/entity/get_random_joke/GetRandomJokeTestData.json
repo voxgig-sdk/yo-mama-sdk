@@ -2,13 +2,16 @@
   "existing": {
     "get_random_joke": {
       "GET_RANDOM_JOKE00": {
-        "joke": "sa"
+        "joke": "sa",
+        "id": "GET_RANDOM_JOKE00"
       },
       "GET_RANDOM_JOKE01": {
-        "joke": "s14"
+        "joke": "s14",
+        "id": "GET_RANDOM_JOKE01"
       },
       "GET_RANDOM_JOKE02": {
-        "joke": "s1e"
+        "joke": "s1e",
+        "id": "GET_RANDOM_JOKE02"
       }
     }
   },

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/yo-mama-sdk"
-	"github.com/voxgig-sdk/yo-mama-sdk/core"
+	sdk "github.com/voxgig-sdk/yo-mama-sdk/go"
+	"github.com/voxgig-sdk/yo-mama-sdk/go/core"
 )
 
 func TestJokeDirect(t *testing.T) {

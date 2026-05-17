@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/yo-mama-sdk/core"
+	"github.com/voxgig-sdk/yo-mama-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/yo-mama-sdk/go/utility/struct"
 )
 
 type JokeEntity struct {

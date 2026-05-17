@@ -5,14 +5,14 @@ The Golang SDK for the YoMama API. Provides an entity-oriented interface using s
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/yo-mama-sdk
+go get github.com/voxgig-sdk/yo-mama-sdk/go
 ```
 
 If the module is not yet published to a registry, use a `replace` directive
 in your `go.mod` to point to a local checkout:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/yo-mama-sdk=../path/to/github.com/voxgig-sdk/yo-mama-sdk
+go mod edit -replace github.com/voxgig-sdk/yo-mama-sdk/go=../path/to/github.com/voxgig-sdk/yo-mama-sdk/go
 ```
 
 
@@ -30,8 +30,8 @@ import (
     "fmt"
     "os"
 
-    sdk "github.com/voxgig-sdk/yo-mama-sdk"
-    "github.com/voxgig-sdk/yo-mama-sdk/core"
+    sdk "github.com/voxgig-sdk/yo-mama-sdk/go"
+    "github.com/voxgig-sdk/yo-mama-sdk/go/core"
 )
 
 func main() {
@@ -376,7 +376,7 @@ Use `core.ToMapAny()` to safely cast results and nested data.
 ### Package structure
 
 ```
-github.com/voxgig-sdk/yo-mama-sdk/
+github.com/voxgig-sdk/yo-mama-sdk/go/
 ├── yo-mama.go        # Root package — type aliases and constructors
 ├── core/               # SDK core — client, types, pipeline
 ├── entity/             # Entity implementations
@@ -385,7 +385,7 @@ github.com/voxgig-sdk/yo-mama-sdk/
 └── test/               # Test suites
 ```
 
-The root package (`github.com/voxgig-sdk/yo-mama-sdk`) re-exports everything needed
+The root package (`github.com/voxgig-sdk/yo-mama-sdk/go`) re-exports everything needed
 for normal use. Import sub-packages only when you need specific types
 like `core.ToMapAny`.
 

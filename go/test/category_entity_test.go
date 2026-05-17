@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/yo-mama-sdk"
-	"github.com/voxgig-sdk/yo-mama-sdk/core"
+	sdk "github.com/voxgig-sdk/yo-mama-sdk/go"
+	"github.com/voxgig-sdk/yo-mama-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/yo-mama-sdk/go/utility/struct"
 )
 
 func TestCategoryEntity(t *testing.T) {
