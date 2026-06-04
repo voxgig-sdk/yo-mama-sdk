@@ -86,7 +86,6 @@ function category_basic_setup($extra)
         "YOMAMA_TEST_CATEGORY_ENTID" => $idmap,
         "YOMAMA_TEST_LIVE" => "FALSE",
         "YOMAMA_TEST_EXPLAIN" => "FALSE",
-        "YOMAMA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +97,6 @@ function category_basic_setup($extra)
     if ($env["YOMAMA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["YOMAMA_APIKEY"],
             ],
             $extra ?? [],
         ]);

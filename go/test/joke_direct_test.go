@@ -93,14 +93,12 @@ func jokeDirectSetup(mockres any) *jokeDirectSetupResult {
 	env := envOverride(map[string]any{
 		"YOMAMA_TEST_JOKE_ENTID": map[string]any{},
 		"YOMAMA_TEST_LIVE":    "FALSE",
-		"YOMAMA_APIKEY":       "NONE",
 	})
 
 	live := env["YOMAMA_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["YOMAMA_APIKEY"],
 		}
 		client := sdk.NewYoMamaSDK(mergedOpts)
 

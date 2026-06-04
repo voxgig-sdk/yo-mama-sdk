@@ -117,7 +117,6 @@ func get_random_jokeBasicSetup(extra map[string]any) *entityTestSetup {
 		"YOMAMA_TEST_GET_RANDOM_JOKE_ENTID": idmap,
 		"YOMAMA_TEST_LIVE":      "FALSE",
 		"YOMAMA_TEST_EXPLAIN":   "FALSE",
-		"YOMAMA_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["YOMAMA_TEST_GET_RANDOM_JOKE_ENTID"])
@@ -128,7 +127,6 @@ func get_random_jokeBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["YOMAMA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["YOMAMA_APIKEY"],
 			},
 			extra,
 		})

@@ -92,7 +92,6 @@ function joke_basic_setup(extra)
     ["YOMAMA_TEST_JOKE_ENTID"] = idmap,
     ["YOMAMA_TEST_LIVE"] = "FALSE",
     ["YOMAMA_TEST_EXPLAIN"] = "FALSE",
-    ["YOMAMA_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function joke_basic_setup(extra)
   if env["YOMAMA_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["YOMAMA_APIKEY"],
       },
       extra or {},
     })

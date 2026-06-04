@@ -61,14 +61,12 @@ def _category_direct_setup(mockres):
     env = runner.env_override({
         "YOMAMA_TEST_CATEGORY_ENTID": {},
         "YOMAMA_TEST_LIVE": "FALSE",
-        "YOMAMA_APIKEY": "NONE",
     })
 
     live = env.get("YOMAMA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("YOMAMA_APIKEY"),
         }
         client = YoMamaSDK(merged_opts)
         return {
