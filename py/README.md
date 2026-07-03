@@ -10,7 +10,7 @@ The Python SDK for the YoMama API — an entity-oriented client following Python
 
 ## Install
 ```bash
-pip install yo-mama-sdk
+pip install voxgig-sdk-yo-mama
 ```
 
 Or install from source:

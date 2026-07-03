@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/yo-mama",
-  "description": "YoMama SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Yo Mama public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "yo-mama"],
+  "homepage": "https://github.com/voxgig-sdk/yo-mama-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/yo-mama-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/yo-mama-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"

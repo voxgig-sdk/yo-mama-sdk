@@ -10,7 +10,7 @@ The Lua SDK for the YoMama API — an entity-oriented client using Lua conventio
 
 ## Install
 ```bash
-luarocks install yo-mama-sdk
+luarocks install voxgig-sdk-yo-mama
 ```
 
 If the module is not yet published, add the source directory to

@@ -10,13 +10,13 @@ The Ruby SDK for the YoMama API — an entity-oriented client using idiomatic Ru
 
 ## Install
 ```bash
-gem install yo-mama-sdk
+gem install voxgig-sdk-yo-mama
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "yo-mama-sdk"
+gem "voxgig-sdk-yo-mama"
 ```
 
 Then run:

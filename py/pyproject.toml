@@ -5,16 +5,19 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "voxgig-sdk-yo-mama"
 version = "0.0.1"
-description = "YoMama SDK for Python"
+description = "Unofficial generated Python SDK for the Yo Mama public API. Not affiliated with or endorsed by the upstream API provider."
+readme = "README.md"
 license = "MIT"
 requires-python = ">=3.8"
+keywords = ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "yo-mama"]
 dependencies = [
-    "requests>=2.33",
     "requests>=2.33",
 ]
 
 [project.urls]
-Homepage = "https://github.com/voxgig/yo-mama-sdk"
+Homepage = "https://github.com/voxgig-sdk/yo-mama-sdk"
+Repository = "https://github.com/voxgig-sdk/yo-mama-sdk"
+Issues = "https://github.com/voxgig-sdk/yo-mama-sdk/issues"
 
 # Explicit package list — setuptools auto-discovery refuses to pick when
 # multiple top-level dirs (core/entity/feature/utility) are present.

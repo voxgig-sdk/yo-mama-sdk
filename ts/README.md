@@ -10,7 +10,7 @@ The TypeScript SDK for the YoMama API — a type-safe, entity-oriented client wi
 
 ## Install
 ```bash
-npm install yo-mama
+npm install @voxgig-sdk/yo-mama
 ```
 ## Tutorial: your first API call
 

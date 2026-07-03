@@ -10,7 +10,7 @@ The PHP SDK for the YoMama API — an entity-oriented client using PHP conventio
 
 ## Install
 ```bash
-composer require voxgig/yo-mama-sdk
+composer require voxgig-sdk/yo-mama
 ```
 
 
