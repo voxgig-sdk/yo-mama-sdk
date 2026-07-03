@@ -82,6 +82,7 @@ def get_random_joke_basic_setup(extra)
     "YOMAMA_TEST_GET_RANDOM_JOKE_ENTID" => idmap,
     "YOMAMA_TEST_LIVE" => "FALSE",
     "YOMAMA_TEST_EXPLAIN" => "FALSE",
+    "YOMAMA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -93,6 +94,7 @@ def get_random_joke_basic_setup(extra)
   if env["YOMAMA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["YOMAMA_APIKEY"],
       },
       extra || {},
     ])

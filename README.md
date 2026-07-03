@@ -1,20 +1,8 @@
 # YoMama SDK
 
-Fetch random Yo Mama jokes as JSON, with optional category filtering
+Yo Mama API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Yo Mama API
-
-The [Yo Mama API](https://api.yomomma.info) is a small free service that returns Yo Mama jokes as JSON. There is no published maintainer information or formal documentation; the most useful third-party reference is the [Free Public APIs catalogue page](https://freepublicapis.com/yo-mama-api).
-
-What you get from the API:
-
-- A random Yo Mama joke from the full corpus
-- A random joke restricted to a specific category (e.g. `fat`)
-- A listing of jokes grouped by category
-
-No API key, OAuth, or sign-up is required. Rate limits are not documented. CORS is reported as disabled on all endpoints, so client-side use from a browser may require a server-side proxy.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install yo-mama-sdk
 luarocks install yo-mama-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { YoMamaSDK } from 'yo-mama'
 
-const client = new YoMamaSDK({})
+const client = new YoMamaSDK({
+  apikey: process.env.YO-MAMA_APIKEY,
+})
 
 // List all categorys
 const categorys = await client.Category().list()
+console.log(categorys.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,9 +90,9 @@ The API exposes 3 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Category** | A named grouping of Yo Mama jokes (for example `fat`) used to scope listing and random-joke requests. | `/categories` |
-| **GetRandomJoke** | Operation that returns a single randomly selected joke from the corpus via `GET /api/random`. | `/` |
-| **Joke** | A single Yo Mama joke resource returned as JSON, either at random or as part of a category listing. | `/jokes` |
+| **Category** |  | `/categories` |
+| **GetRandomJoke** |  | `/` |
+| **Joke** |  | `/jokes` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -112,12 +102,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from yomama_sdk import YoMamaSDK
 
-client = YoMamaSDK({})
+client = YoMamaSDK({
+    "apikey": os.environ.get("YO-MAMA_APIKEY"),
+})
 
 # List all categorys
-categorys, err = client.Category(None).list(None, None)
+categorys, err = client.Category().list()
+print(categorys)
 ```
 
 ### PHP
@@ -126,10 +120,13 @@ categorys, err = client.Category(None).list(None, None)
 <?php
 require_once 'yomama_sdk.php';
 
-$client = new YoMamaSDK([]);
+$client = new YoMamaSDK([
+    "apikey" => getenv("YO-MAMA_APIKEY"),
+]);
 
 // List all categorys
-[$categorys, $err] = $client->Category(null)->list(null, null);
+[$categorys, $err] = $client->Category()->list();
+print_r($categorys);
 ```
 
 ### Golang
@@ -137,10 +134,13 @@ $client = new YoMamaSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/yo-mama-sdk/go"
 
-client := sdk.NewYoMamaSDK(map[string]any{})
+client := sdk.NewYoMamaSDK(map[string]any{
+    "apikey": os.Getenv("YO-MAMA_APIKEY"),
+})
 
 // List all categorys
 categorys, err := client.Category(nil).List(nil, nil)
+fmt.Println(categorys)
 ```
 
 ### Ruby
@@ -148,10 +148,13 @@ categorys, err := client.Category(nil).List(nil, nil)
 ```ruby
 require_relative "YoMama_sdk"
 
-client = YoMamaSDK.new({})
+client = YoMamaSDK.new({
+  "apikey" => ENV["YO-MAMA_APIKEY"],
+})
 
 # List all categorys
-categorys, err = client.Category(nil).list(nil, nil)
+categorys, err = client.Category().list
+puts categorys
 ```
 
 ### Lua
@@ -159,10 +162,13 @@ categorys, err = client.Category(nil).list(nil, nil)
 ```lua
 local sdk = require("yo-mama_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("YO-MAMA_APIKEY"),
+})
 
 -- List all categorys
-local categorys, err = client:Category(nil):list(nil, nil)
+local categorys, err = client:Category():list()
+print(categorys)
 ```
 
 ## Unit testing in offline mode
@@ -181,25 +187,21 @@ const result = await client.Category().load({ id: 'test01' })
 ### Python
 
 ```python
-client = YoMamaSDK.test(None, None)
-result, err = client.Category(None).load(
-    {"id": "test01"}, None
-)
+client = YoMamaSDK.test()
+result, err = client.Category().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = YoMamaSDK::test(null, null);
-[$result, $err] = $client->Category(null)->load(
-    ["id" => "test01"], null
-);
+$client = YoMamaSDK::test();
+[$result, $err] = $client->Category()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Category(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -208,19 +210,15 @@ result, err := client.Category(nil).Load(
 ### Ruby
 
 ```ruby
-client = YoMamaSDK.test(nil, nil)
-result, err = client.Category(nil).load(
-  { "id" => "test01" }, nil
-)
+client = YoMamaSDK.test
+result, err = client.Category().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Category(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Category():load({ id = "test01" })
 ```
 
 ## How it works
@@ -324,16 +322,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Yo Mama API
-
-- Upstream: [https://api.yomomma.info](https://api.yomomma.info)
-- API docs: [https://freepublicapis.com/yo-mama-api](https://freepublicapis.com/yo-mama-api)
-
-- No licence or terms of use are published for the joke corpus
-- No authentication or API key is required
-- No attribution requirements are documented
-- CORS is reportedly disabled, so browser-side calls may need a proxy
 
 ---
 

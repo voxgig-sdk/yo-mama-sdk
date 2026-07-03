@@ -62,12 +62,14 @@ function get_random_joke_direct_setup(mockres)
   local env = runner.env_override({
     ["YOMAMA_TEST_GET_RANDOM_JOKE_ENTID"] = {},
     ["YOMAMA_TEST_LIVE"] = "FALSE",
+    ["YOMAMA_APIKEY"] = "NONE",
   })
 
   local live = env["YOMAMA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["YOMAMA_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

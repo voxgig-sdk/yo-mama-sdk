@@ -119,6 +119,7 @@ func categoryBasicSetup(extra map[string]any) *entityTestSetup {
 		"YOMAMA_TEST_CATEGORY_ENTID": idmap,
 		"YOMAMA_TEST_LIVE":      "FALSE",
 		"YOMAMA_TEST_EXPLAIN":   "FALSE",
+		"YOMAMA_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["YOMAMA_TEST_CATEGORY_ENTID"])
@@ -129,6 +130,7 @@ func categoryBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["YOMAMA_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["YOMAMA_APIKEY"],
 			},
 			extra,
 		})

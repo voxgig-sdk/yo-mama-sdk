@@ -74,12 +74,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'YOMAMA_TEST_GET_RANDOM_JOKE_ENTID': {},
     'YOMAMA_TEST_LIVE': 'FALSE',
+    'YOMAMA_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.YOMAMA_TEST_LIVE
 
   if (live) {
     const client = new YoMamaSDK({
+      apikey: env.YOMAMA_APIKEY,
     })
 
     let idmap: any = env['YOMAMA_TEST_GET_RANDOM_JOKE_ENTID']

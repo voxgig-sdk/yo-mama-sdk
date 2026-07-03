@@ -68,12 +68,14 @@ function joke_direct_setup($mockres)
     $env = Runner::env_override([
         "YOMAMA_TEST_JOKE_ENTID" => [],
         "YOMAMA_TEST_LIVE" => "FALSE",
+        "YOMAMA_APIKEY" => "NONE",
     ]);
 
     $live = $env["YOMAMA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["YOMAMA_APIKEY"],
         ];
         $client = new YoMamaSDK($merged_opts);
         return [
