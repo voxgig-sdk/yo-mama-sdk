@@ -208,39 +208,21 @@ class YoMamaSDK
   end
 
 
-  # Idiomatic facade: client.category.list / client.category.load({ "id" => ... })
-  def category
-    require_relative 'entity/category_entity'
-    @category ||= CategoryEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.category instead.
+  # Canonical facade: client.Category.list / client.Category.load({ "id" => ... })
   def Category(data = nil)
     require_relative 'entity/category_entity'
     CategoryEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.get_random_joke.list / client.get_random_joke.load({ "id" => ... })
-  def get_random_joke
-    require_relative 'entity/get_random_joke_entity'
-    @get_random_joke ||= GetRandomJokeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get_random_joke instead.
+  # Canonical facade: client.GetRandomJoke.list / client.GetRandomJoke.load({ "id" => ... })
   def GetRandomJoke(data = nil)
     require_relative 'entity/get_random_joke_entity'
     GetRandomJokeEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.joke.list / client.joke.load({ "id" => ... })
-  def joke
-    require_relative 'entity/joke_entity'
-    @joke ||= JokeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.joke instead.
+  # Canonical facade: client.Joke.list / client.Joke.load({ "id" => ... })
   def Joke(data = nil)
     require_relative 'entity/joke_entity'
     JokeEntity.new(self, data)

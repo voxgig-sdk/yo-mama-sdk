@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:category():list() / client:category():load({ id = ... })
-function YoMamaSDK:category(data)
+-- Idiomatic facade: client:Category():list() / client:Category():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function YoMamaSDK:Category(data)
   local EntityMod = require("entity.category_entity")
   if data == nil then
     if self._category == nil then
@@ -256,15 +257,10 @@ function YoMamaSDK:category(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:category() instead.
-function YoMamaSDK:Category(data)
-  local EntityMod = require("entity.category_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:get_random_joke():list() / client:get_random_joke():load({ id = ... })
-function YoMamaSDK:get_random_joke(data)
+-- Idiomatic facade: client:GetRandomJoke():list() / client:GetRandomJoke():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function YoMamaSDK:GetRandomJoke(data)
   local EntityMod = require("entity.get_random_joke_entity")
   if data == nil then
     if self._get_random_joke == nil then
@@ -275,15 +271,10 @@ function YoMamaSDK:get_random_joke(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:get_random_joke() instead.
-function YoMamaSDK:GetRandomJoke(data)
-  local EntityMod = require("entity.get_random_joke_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:joke():list() / client:joke():load({ id = ... })
-function YoMamaSDK:joke(data)
+-- Idiomatic facade: client:Joke():list() / client:Joke():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function YoMamaSDK:Joke(data)
   local EntityMod = require("entity.joke_entity")
   if data == nil then
     if self._joke == nil then
@@ -291,12 +282,6 @@ function YoMamaSDK:joke(data)
     end
     return self._joke
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:joke() instead.
-function YoMamaSDK:Joke(data)
-  local EntityMod = require("entity.joke_entity")
   return EntityMod.new(self, data)
 end
 

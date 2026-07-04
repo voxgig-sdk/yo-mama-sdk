@@ -29,18 +29,16 @@ require_once 'yomama_sdk.php';
 $client = new YoMamaSDK();
 ```
 
-### 2. List categorys
+### 2. List category records
 
 ```php
 try {
-    $result = $client->category()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Category records — iterate directly.
+    $categorys = $client->Category()->list();
+    foreach ($categorys as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = YoMamaSDK::test();
+$client = YoMamaSDK::test([
+    "entity" => ["category" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->category()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$category = $client->Category()->load(["id" => "test01"]);
+print_r($category);
 ```
 
 ### Use a custom fetch function
@@ -250,7 +252,7 @@ API path: `/jokes`
 
 ### Category
 
-Create an instance: `const category = client.category`
+Create an instance: `$category = $client->Category();`
 
 #### Operations
 
@@ -266,14 +268,15 @@ Create an instance: `const category = client.category`
 
 #### Example: List
 
-```ts
-const categorys = await client.category.list()
+```php
+// list() returns an array of Category records (throws on error).
+$categorys = $client->Category()->list();
 ```
 
 
 ### GetRandomJoke
 
-Create an instance: `const get_random_joke = client.get_random_joke`
+Create an instance: `$get_random_joke = $client->GetRandomJoke();`
 
 #### Operations
 
@@ -289,14 +292,15 @@ Create an instance: `const get_random_joke = client.get_random_joke`
 
 #### Example: Load
 
-```ts
-const get_random_joke = await client.get_random_joke.load({ id: 'get_random_joke_id' })
+```php
+// load() returns the bare GetRandomJoke record (throws on error).
+$get_random_joke = $client->GetRandomJoke()->load(["id" => "get_random_joke_id"]);
 ```
 
 
 ### Joke
 
-Create an instance: `const joke = client.joke`
+Create an instance: `$joke = $client->Joke();`
 
 #### Operations
 
@@ -312,8 +316,9 @@ Create an instance: `const joke = client.joke`
 
 #### Example: List
 
-```ts
-const jokes = await client.joke.list()
+```php
+// list() returns an array of Joke records (throws on error).
+$jokes = $client->Joke()->list();
 ```
 
 
@@ -388,7 +393,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$category = $client->category();
+$category = $client->Category();
 $category->load(["id" => "example_id"]);
 
 // $category->dataGet() now returns the loaded category data

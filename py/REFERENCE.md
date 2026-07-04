@@ -88,7 +88,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CategoryEntity
 
 ```python
-category = client.category
+category = client.Category()
 ```
 
 ### Fields
@@ -104,7 +104,9 @@ category = client.category
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.category.list({})
+results = client.Category().list({})
+for category in results:
+    print(category)
 ```
 
 ### Common Methods
@@ -139,7 +141,7 @@ Return the entity name.
 ## GetRandomJokeEntity
 
 ```python
-get_random_joke = client.get_random_joke
+get_random_joke = client.GetRandomJoke()
 ```
 
 ### Fields
@@ -155,7 +157,7 @@ get_random_joke = client.get_random_joke
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.get_random_joke.load({"id": "get_random_joke_id"})
+result = client.GetRandomJoke().load({"id": "get_random_joke_id"})
 ```
 
 ### Common Methods
@@ -190,7 +192,7 @@ Return the entity name.
 ## JokeEntity
 
 ```python
-joke = client.joke
+joke = client.Joke()
 ```
 
 ### Fields
@@ -206,7 +208,9 @@ joke = client.joke
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.joke.list({})
+results = client.Joke().list({})
+for joke in results:
+    print(joke)
 ```
 
 ### Common Methods

@@ -94,7 +94,7 @@ same parameters as `direct()`. Raises on error.
 ## CategoryEntity
 
 ```ruby
-category = client.category
+category = client.Category
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ category = client.category
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.category.list(nil)
+results = client.Category.list(nil)
 ```
 
 ### Common Methods
@@ -146,7 +146,7 @@ Return the entity name.
 ## GetRandomJokeEntity
 
 ```ruby
-get_random_joke = client.get_random_joke
+get_random_joke = client.GetRandomJoke
 ```
 
 ### Fields
@@ -162,7 +162,7 @@ get_random_joke = client.get_random_joke
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.get_random_joke.load({ "id" => "get_random_joke_id" })
+result = client.GetRandomJoke.load({ "id" => "get_random_joke_id" })
 ```
 
 ### Common Methods
@@ -198,7 +198,7 @@ Return the entity name.
 ## JokeEntity
 
 ```ruby
-joke = client.joke
+joke = client.Joke
 ```
 
 ### Fields
@@ -214,7 +214,7 @@ joke = client.joke
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.joke.list(nil)
+results = client.Joke.list(nil)
 ```
 
 ### Common Methods

@@ -133,7 +133,7 @@ Alias for `YoMamaSDK.test()`.
 ## CategoryEntity
 
 ```ts
-const category = client.category
+const category = client.Category()
 ```
 
 ### Fields
@@ -149,7 +149,7 @@ const category = client.category
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.category.list()
+const results = await client.Category().list()
 ```
 
 ### Common Methods
@@ -183,7 +183,7 @@ Return a copy of the entity options.
 ## GetRandomJokeEntity
 
 ```ts
-const get_random_joke = client.get_random_joke
+const get_random_joke = client.GetRandomJoke()
 ```
 
 ### Fields
@@ -199,7 +199,7 @@ const get_random_joke = client.get_random_joke
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.get_random_joke.load({ id: 'get_random_joke_id' })
+const result = await client.GetRandomJoke().load({ id: 'get_random_joke_id' })
 ```
 
 ### Common Methods
@@ -233,7 +233,7 @@ Return a copy of the entity options.
 ## JokeEntity
 
 ```ts
-const joke = client.joke
+const joke = client.Joke()
 ```
 
 ### Fields
@@ -249,7 +249,7 @@ const joke = client.joke
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.joke.list()
+const results = await client.Joke().list()
 ```
 
 ### Common Methods

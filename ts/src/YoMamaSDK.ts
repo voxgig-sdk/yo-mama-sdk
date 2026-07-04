@@ -206,42 +206,21 @@ class YoMamaSDK {
 
 
 
-  _category?: CategoryEntity
-
-  // Idiomatic facade: `client.category.list()` / `client.category.load({ id })`.
-  get category(): CategoryEntity {
-    return (this._category ??= new CategoryEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.category` instead. */
+  // Entity access: `client.Category().list()` / `client.Category().load({ id })`.
   Category(data?: any) {
     const self = this
     return new CategoryEntity(self,data)
   }
 
 
-  _get_random_joke?: GetRandomJokeEntity
-
-  // Idiomatic facade: `client.get_random_joke.list()` / `client.get_random_joke.load({ id })`.
-  get get_random_joke(): GetRandomJokeEntity {
-    return (this._get_random_joke ??= new GetRandomJokeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.get_random_joke` instead. */
+  // Entity access: `client.GetRandomJoke().list()` / `client.GetRandomJoke().load({ id })`.
   GetRandomJoke(data?: any) {
     const self = this
     return new GetRandomJokeEntity(self,data)
   }
 
 
-  _joke?: JokeEntity
-
-  // Idiomatic facade: `client.joke.list()` / `client.joke.load({ id })`.
-  get joke(): JokeEntity {
-    return (this._joke ??= new JokeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.joke` instead. */
+  // Entity access: `client.Joke().list()` / `client.Joke().load({ id })`.
   Joke(data?: any) {
     const self = this
     return new JokeEntity(self,data)

@@ -28,16 +28,14 @@ require_relative "YoMama_sdk"
 client = YoMamaSDK.new
 ```
 
-### 2. List categorys
+### 2. List category records
 
 ```ruby
 begin
-  result = client.category.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Category records — iterate directly.
+  categorys = client.Category.list
+  categorys.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = YoMamaSDK.test
+client = YoMamaSDK.test({
+  "entity" => { "category" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.category.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+category = client.Category.load({ "id" => "test01" })
+puts category
 ```
 
 ### Use a custom fetch function
@@ -245,7 +247,7 @@ API path: `/jokes`
 
 ### Category
 
-Create an instance: `const category = client.category`
+Create an instance: `category = client.Category`
 
 #### Operations
 
@@ -261,14 +263,15 @@ Create an instance: `const category = client.category`
 
 #### Example: List
 
-```ts
-const categorys = await client.category.list()
+```ruby
+# list returns an Array of Category records (raises on error).
+categorys = client.Category.list
 ```
 
 
 ### GetRandomJoke
 
-Create an instance: `const get_random_joke = client.get_random_joke`
+Create an instance: `get_random_joke = client.GetRandomJoke`
 
 #### Operations
 
@@ -284,14 +287,15 @@ Create an instance: `const get_random_joke = client.get_random_joke`
 
 #### Example: Load
 
-```ts
-const get_random_joke = await client.get_random_joke.load({ id: 'get_random_joke_id' })
+```ruby
+# load returns the bare GetRandomJoke record (raises on error).
+get_random_joke = client.GetRandomJoke.load({ "id" => "get_random_joke_id" })
 ```
 
 
 ### Joke
 
-Create an instance: `const joke = client.joke`
+Create an instance: `joke = client.Joke`
 
 #### Operations
 
@@ -307,8 +311,9 @@ Create an instance: `const joke = client.joke`
 
 #### Example: List
 
-```ts
-const jokes = await client.joke.list()
+```ruby
+# list returns an Array of Joke records (raises on error).
+jokes = client.Joke.list
 ```
 
 
@@ -383,7 +388,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-category = client.category
+category = client.Category
 category.load({ "id" => "example_id" })
 
 # category.data_get now returns the loaded category data

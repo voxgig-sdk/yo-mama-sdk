@@ -31,14 +31,16 @@ from yomama_sdk import YoMamaSDK
 client = YoMamaSDK()
 ```
 
-### 2. List categorys
+### 2. List category records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.category.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    categorys = client.Category().list({})
+    for category in categorys:
+        print(category)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = YoMamaSDK.test()
 
-result = client.category.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+category = client.Category().load({"id": "test01"})
+# category contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -242,7 +245,7 @@ API path: `/jokes`
 
 ### Category
 
-Create an instance: `const category = client.category`
+Create an instance: `category = client.Category()`
 
 #### Operations
 
@@ -258,14 +261,14 @@ Create an instance: `const category = client.category`
 
 #### Example: List
 
-```ts
-const categorys = await client.category.list()
+```python
+categorys = client.Category().list({})
 ```
 
 
 ### GetRandomJoke
 
-Create an instance: `const get_random_joke = client.get_random_joke`
+Create an instance: `get_random_joke = client.GetRandomJoke()`
 
 #### Operations
 
@@ -281,14 +284,14 @@ Create an instance: `const get_random_joke = client.get_random_joke`
 
 #### Example: Load
 
-```ts
-const get_random_joke = await client.get_random_joke.load({ id: 'get_random_joke_id' })
+```python
+get_random_joke = client.GetRandomJoke().load({"id": "get_random_joke_id"})
 ```
 
 
 ### Joke
 
-Create an instance: `const joke = client.joke`
+Create an instance: `joke = client.Joke()`
 
 #### Operations
 
@@ -304,8 +307,8 @@ Create an instance: `const joke = client.joke`
 
 #### Example: List
 
-```ts
-const jokes = await client.joke.list()
+```python
+jokes = client.Joke().list({})
 ```
 
 
@@ -379,7 +382,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-category = client.category
+category = client.Category()
 category.load({"id": "example_id"})
 
 # category.data_get() now returns the loaded category data

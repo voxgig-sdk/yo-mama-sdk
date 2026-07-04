@@ -93,7 +93,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CategoryEntity
 
 ```php
-$category = $client->category();
+$category = $client->Category();
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ $category = $client->category();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->category()->list([]);
+$results = $client->Category()->list([]);
 ```
 
 ### Common Methods
@@ -145,7 +145,7 @@ Return the entity name.
 ## GetRandomJokeEntity
 
 ```php
-$get_random_joke = $client->get_random_joke();
+$get_random_joke = $client->GetRandomJoke();
 ```
 
 ### Fields
@@ -161,7 +161,7 @@ $get_random_joke = $client->get_random_joke();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->get_random_joke()->load(["id" => "get_random_joke_id"]);
+$result = $client->GetRandomJoke()->load(["id" => "get_random_joke_id"]);
 ```
 
 ### Common Methods
@@ -197,7 +197,7 @@ Return the entity name.
 ## JokeEntity
 
 ```php
-$joke = $client->joke();
+$joke = $client->Joke();
 ```
 
 ### Fields
@@ -213,7 +213,7 @@ $joke = $client->joke();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->joke()->list([]);
+$results = $client->Joke()->list([]);
 ```
 
 ### Common Methods
