@@ -244,18 +244,57 @@ end
 
 
 
+-- Idiomatic facade: client:category():list() / client:category():load({ id = ... })
+function YoMamaSDK:category(data)
+  local EntityMod = require("entity.category_entity")
+  if data == nil then
+    if self._category == nil then
+      self._category = EntityMod.new(self, nil)
+    end
+    return self._category
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:category() instead.
 function YoMamaSDK:Category(data)
   local EntityMod = require("entity.category_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:get_random_joke():list() / client:get_random_joke():load({ id = ... })
+function YoMamaSDK:get_random_joke(data)
+  local EntityMod = require("entity.get_random_joke_entity")
+  if data == nil then
+    if self._get_random_joke == nil then
+      self._get_random_joke = EntityMod.new(self, nil)
+    end
+    return self._get_random_joke
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get_random_joke() instead.
 function YoMamaSDK:GetRandomJoke(data)
   local EntityMod = require("entity.get_random_joke_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:joke():list() / client:joke():load({ id = ... })
+function YoMamaSDK:joke(data)
+  local EntityMod = require("entity.joke_entity")
+  if data == nil then
+    if self._joke == nil then
+      self._joke = EntityMod.new(self, nil)
+    end
+    return self._joke
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:joke() instead.
 function YoMamaSDK:Joke(data)
   local EntityMod = require("entity.joke_entity")
   return EntityMod.new(self, data)

@@ -9,12 +9,9 @@ The Lua SDK for the YoMama API — an entity-oriented client using Lua conventio
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-yo-mama
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/yo-mama-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("yo-mama_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("YO-MAMA_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List categorys
 
 ```lua
-local result, err = client:Category():list()
+local result, err = client:category():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +88,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:YoMama():load({ id = "test01" })
+local result, err = client:category():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +121,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-YO-MAMA_TEST_LIVE=TRUE
-YO-MAMA_APIKEY=<your-key>
+YO_MAMA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -150,7 +144,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -249,7 +242,7 @@ API path: `/jokes`
 
 ### Category
 
-Create an instance: `const category = client.Category()`
+Create an instance: `const category = client.category`
 
 #### Operations
 
@@ -266,13 +259,13 @@ Create an instance: `const category = client.Category()`
 #### Example: List
 
 ```ts
-const categorys = await client.Category().list()
+const categorys = await client.category.list()
 ```
 
 
 ### GetRandomJoke
 
-Create an instance: `const get_random_joke = client.GetRandomJoke()`
+Create an instance: `const get_random_joke = client.get_random_joke`
 
 #### Operations
 
@@ -289,13 +282,13 @@ Create an instance: `const get_random_joke = client.GetRandomJoke()`
 #### Example: Load
 
 ```ts
-const get_random_joke = await client.GetRandomJoke().load({ id: 'get_random_joke_id' })
+const get_random_joke = await client.get_random_joke.load({ id: 'get_random_joke_id' })
 ```
 
 
 ### Joke
 
-Create an instance: `const joke = client.Joke()`
+Create an instance: `const joke = client.joke`
 
 #### Operations
 
@@ -312,7 +305,7 @@ Create an instance: `const joke = client.Joke()`
 #### Example: List
 
 ```ts
-const jokes = await client.Joke().list()
+const jokes = await client.joke.list()
 ```
 
 
@@ -387,11 +380,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local category = client:category()
+category:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- category:data_get() now returns the loaded category data
+-- category:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

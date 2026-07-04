@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'YO_MAMA_TEST_CATEGORY_ENTID': idmap,
     'YO_MAMA_TEST_LIVE': 'FALSE',
     'YO_MAMA_TEST_EXPLAIN': 'FALSE',
-    'YO_MAMA_APIKEY': 'NONE',
   })
 
   idmap = env['YO_MAMA_TEST_CATEGORY_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new YoMamaSDK(merge([
       {
-        apikey: env.YO_MAMA_APIKEY,
       },
       extra
     ]))

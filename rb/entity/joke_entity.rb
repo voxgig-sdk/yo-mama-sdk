@@ -45,6 +45,7 @@ class JokeEntity
     end
   end
 
+  # @return [Joke, Hash] the current Joke data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class JokeEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Joke fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class JokeEntity
   
 
   
+  # List Joke items matching the given filter.
+  #
+  # @param reqmatch [JokeListMatch, Hash, nil] match filter (any subset of Joke fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Joke>, Array] the matching Joke items; raises YoMamaError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  GetRandomJoke,
+  GetRandomJokeLoadMatch,
+} from '../YoMamaTypes'
 
 // TODO: needs Entity superclass
-class GetRandomJokeEntity extends YoMamaEntityBase {
+class GetRandomJokeEntity extends YoMamaEntityBase<GetRandomJoke> {
 
   constructor(client: YoMamaSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class GetRandomJokeEntity extends YoMamaEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: GetRandomJokeLoadMatch, ctrl?: Control): Promise<GetRandomJoke> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class GetRandomJokeEntity extends YoMamaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<GetRandomJoke> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

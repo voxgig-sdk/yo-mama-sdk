@@ -50,8 +50,7 @@ class TestJokeEntity:
         joke_ref01_ent = client.Joke(None)
         joke_ref01_match = {}
 
-        joke_ref01_list_result, err = joke_ref01_ent.list(joke_ref01_match, None)
-        assert err is None
+        joke_ref01_list_result = joke_ref01_ent.list(joke_ref01_match, None)
         assert isinstance(joke_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _joke_basic_setup(extra):
         "YOMAMA_TEST_JOKE_ENTID": idmap,
         "YOMAMA_TEST_LIVE": "FALSE",
         "YOMAMA_TEST_EXPLAIN": "FALSE",
-        "YOMAMA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _joke_basic_setup(extra):
     if env.get("YOMAMA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("YOMAMA_APIKEY"),
             },
             extra or {},
         ])

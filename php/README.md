@@ -9,9 +9,10 @@ The PHP SDK for the YoMama API — an entity-oriented client using PHP conventio
 
 
 ## Install
-```bash
-composer require voxgig-sdk/yo-mama
-```
+This package is not yet published to Packagist. Install it from the
+GitHub release tag (`php/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/yo-mama-sdk/releases](https://github.com/voxgig-sdk/yo-mama-sdk/releases)
 
 
 ## Tutorial: your first API call
@@ -25,22 +26,22 @@ loading a specific record.
 <?php
 require_once 'yomama_sdk.php';
 
-$client = new YoMamaSDK([
-    "apikey" => getenv("YO-MAMA_APIKEY"),
-]);
+$client = new YoMamaSDK();
 ```
 
 ### 2. List categorys
 
 ```php
-[$result, $err] = $client->Category()->list();
-if ($err) { throw new \Exception($err); }
-
-if (is_array($result)) {
-    foreach ($result as $item) {
-        $d = $item->data_get();
-        echo $d["id"] . " " . $d["name"] . "\n";
+try {
+    $result = $client->category()->list();
+    if (is_array($result)) {
+        foreach ($result as $item) {
+            $d = $item->data_get();
+            echo $d["id"] . " " . $d["name"] . "\n";
+        }
     }
+} catch (\Exception $err) {
+    echo "Error: " . $err->getMessage();
 }
 ```
 
@@ -52,28 +53,31 @@ if (is_array($result)) {
 For endpoints not covered by entity methods:
 
 ```php
-[$result, $err] = $client->direct([
+// direct() is the raw-HTTP escape hatch: it returns a result array
+// (it does not throw). Branch on $result["ok"].
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 if ($result["ok"]) {
     echo $result["status"];  // 200
     print_r($result["data"]);  // response body
+} else {
+    echo "Error: " . $result["err"]->getMessage();
 }
 ```
 
 ### Prepare a request without sending it
 
 ```php
-[$fetchdef, $err] = $client->prepare([
+// prepare() throws on error and returns the fetch definition.
+$fetchdef = $client->prepare([
     "path" => "/api/resource/{id}",
     "method" => "DELETE",
     "params" => ["id" => "example"],
 ]);
-if ($err) { throw new \Exception($err); }
 
 echo $fetchdef["url"];
 echo $fetchdef["method"];
@@ -87,7 +91,7 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = YoMamaSDK::test();
 
-[$result, $err] = $client->YoMama()->load(["id" => "test01"]);
+$result = $client->category()->load(["id" => "test01"]);
 // $result contains mock response data
 ```
 
@@ -121,8 +125,7 @@ $client = new YoMamaSDK([
 Create a `.env.local` file at the project root:
 
 ```
-YO-MAMA_TEST_LIVE=TRUE
-YO-MAMA_APIKEY=<your-key>
+YO_MAMA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -145,7 +148,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -193,8 +195,12 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `[$result, $err]`. The first value is an
-`array` with these keys:
+Entity operations return the bare result data (an `array` for single-entity
+ops, a `list` for `list`) and throw on error. Wrap calls in
+`try`/`catch` to handle failures.
+
+The `direct()` escape hatch never throws — it returns a result `array`
+you branch on via `$result["ok"]`:
 
 | Key | Type | Description |
 | --- | --- | --- |
@@ -244,7 +250,7 @@ API path: `/jokes`
 
 ### Category
 
-Create an instance: `const category = client.Category()`
+Create an instance: `const category = client.category`
 
 #### Operations
 
@@ -261,13 +267,13 @@ Create an instance: `const category = client.Category()`
 #### Example: List
 
 ```ts
-const categorys = await client.Category().list()
+const categorys = await client.category.list()
 ```
 
 
 ### GetRandomJoke
 
-Create an instance: `const get_random_joke = client.GetRandomJoke()`
+Create an instance: `const get_random_joke = client.get_random_joke`
 
 #### Operations
 
@@ -284,13 +290,13 @@ Create an instance: `const get_random_joke = client.GetRandomJoke()`
 #### Example: Load
 
 ```ts
-const get_random_joke = await client.GetRandomJoke().load({ id: 'get_random_joke_id' })
+const get_random_joke = await client.get_random_joke.load({ id: 'get_random_joke_id' })
 ```
 
 
 ### Joke
 
-Create an instance: `const joke = client.Joke()`
+Create an instance: `const joke = client.joke`
 
 #### Operations
 
@@ -307,7 +313,7 @@ Create an instance: `const joke = client.Joke()`
 #### Example: List
 
 ```ts
-const jokes = await client.Joke().list()
+const jokes = await client.joke.list()
 ```
 
 
@@ -382,11 +388,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$moon = $client->Moon();
-[$result, $err] = $moon->load(["planet_id" => "earth", "id" => "luna"]);
+$category = $client->category();
+$category->load(["id" => "example_id"]);
 
-// $moon->dataGet() now returns the loaded moon data
-// $moon->matchGet() returns the last match criteria
+// $category->dataGet() now returns the loaded category data
+// $category->matchGet() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

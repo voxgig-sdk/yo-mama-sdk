@@ -10,14 +10,18 @@ The Golang SDK for the YoMama API — an entity-oriented client using standard G
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/yo-mama-sdk/go
+go get github.com/voxgig-sdk/yo-mama-sdk/go@latest
 ```
 
-If the module is not yet published to a registry, use a `replace` directive
-in your `go.mod` to point to a local checkout:
+The Go module proxy resolves the version from the `go/vX.Y.Z` GitHub
+release tag — see [Releases](https://github.com/voxgig-sdk/yo-mama-sdk/releases) for the available versions.
+
+To vendor from a local checkout instead, clone this repo alongside your
+project and add a `replace` directive pointing at the checked-out
+`go/` directory:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/yo-mama-sdk/go=../path/to/github.com/voxgig-sdk/yo-mama-sdk/go
+go mod edit -replace github.com/voxgig-sdk/yo-mama-sdk/go=../yo-mama-sdk/go
 ```
 
 
@@ -33,16 +37,13 @@ package main
 
 import (
     "fmt"
-    "os"
 
     sdk "github.com/voxgig-sdk/yo-mama-sdk/go"
     "github.com/voxgig-sdk/yo-mama-sdk/go/core"
 )
 
 func main() {
-    client := sdk.NewYoMamaSDK(map[string]any{
-        "apikey": os.Getenv("YO-MAMA_APIKEY"),
-    })
+    client := sdk.New()
 ```
 
 ### 2. List categorys
@@ -109,7 +110,7 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Planet(nil).Load(
+result, err := client.Category(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
 // result contains mock response data
@@ -144,8 +145,7 @@ client := sdk.NewYoMamaSDK(map[string]any{
 Create a `.env.local` file at the project root:
 
 ```
-YO-MAMA_TEST_LIVE=TRUE
-YO-MAMA_APIKEY=<your-key>
+YO_MAMA_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -167,7 +167,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `"apikey"` | `string` | API key for authentication. |
 | `"base"` | `string` | Base URL of the API server. |
 | `"prefix"` | `string` | URL path prefix prepended to all requests. |
 | `"suffix"` | `string` | URL path suffix appended to all requests. |
@@ -400,11 +399,11 @@ Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-moon := client.Moon(nil)
-moon.Load(map[string]any{"planet_id": "earth", "id": "luna"}, nil)
+category := client.Category(nil)
+category.Load(map[string]any{"id": "example_id"}, nil)
 
-// moon.Data() now returns the loaded moon data
-// moon.Match() returns the last match criteria
+// category.Data() now returns the loaded category data
+// category.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

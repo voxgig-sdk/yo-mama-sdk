@@ -4,6 +4,8 @@ import { CategoryEntity } from './entity/CategoryEntity'
 import { GetRandomJokeEntity } from './entity/GetRandomJokeEntity'
 import { JokeEntity } from './entity/JokeEntity'
 
+export type * from './YoMamaTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -204,18 +206,42 @@ class YoMamaSDK {
 
 
 
+  _category?: CategoryEntity
+
+  // Idiomatic facade: `client.category.list()` / `client.category.load({ id })`.
+  get category(): CategoryEntity {
+    return (this._category ??= new CategoryEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.category` instead. */
   Category(data?: any) {
     const self = this
     return new CategoryEntity(self,data)
   }
 
 
+  _get_random_joke?: GetRandomJokeEntity
+
+  // Idiomatic facade: `client.get_random_joke.list()` / `client.get_random_joke.load({ id })`.
+  get get_random_joke(): GetRandomJokeEntity {
+    return (this._get_random_joke ??= new GetRandomJokeEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_random_joke` instead. */
   GetRandomJoke(data?: any) {
     const self = this
     return new GetRandomJokeEntity(self,data)
   }
 
 
+  _joke?: JokeEntity
+
+  // Idiomatic facade: `client.joke.list()` / `client.joke.load({ id })`.
+  get joke(): JokeEntity {
+    return (this._joke ??= new JokeEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.joke` instead. */
   Joke(data?: any) {
     const self = this
     return new JokeEntity(self,data)

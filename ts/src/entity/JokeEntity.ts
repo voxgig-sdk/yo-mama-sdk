@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Joke,
+  JokeListMatch,
+} from '../YoMamaTypes'
 
 // TODO: needs Entity superclass
-class JokeEntity extends YoMamaEntityBase {
+class JokeEntity extends YoMamaEntityBase<Joke> {
 
   constructor(client: YoMamaSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class JokeEntity extends YoMamaEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: JokeListMatch, ctrl?: Control): Promise<Joke[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class JokeEntity extends YoMamaEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Joke[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -45,6 +45,7 @@ class CategoryEntity
     end
   end
 
+  # @return [Category, Hash] the current Category data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class CategoryEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of Category fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class CategoryEntity
   
 
   
+  # List Category items matching the given filter.
+  #
+  # @param reqmatch [CategoryListMatch, Hash, nil] match filter (any subset of Category fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<Category>, Array] the matching Category items; raises YoMamaError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

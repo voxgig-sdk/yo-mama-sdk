@@ -49,8 +49,7 @@ class TestGetRandomJokeEntity:
         # LOAD
         get_random_joke_ref01_ent = client.GetRandomJoke(None)
         get_random_joke_ref01_match_dt0 = {}
-        get_random_joke_ref01_data_dt0_loaded, err = get_random_joke_ref01_ent.load(get_random_joke_ref01_match_dt0, None)
-        assert err is None
+        get_random_joke_ref01_data_dt0_loaded = get_random_joke_ref01_ent.load(get_random_joke_ref01_match_dt0, None)
         assert get_random_joke_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _get_random_joke_basic_setup(extra):
         "YOMAMA_TEST_GET_RANDOM_JOKE_ENTID": idmap,
         "YOMAMA_TEST_LIVE": "FALSE",
         "YOMAMA_TEST_EXPLAIN": "FALSE",
-        "YOMAMA_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _get_random_joke_basic_setup(extra):
     if env.get("YOMAMA_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("YOMAMA_APIKEY"),
             },
             extra or {},
         ])

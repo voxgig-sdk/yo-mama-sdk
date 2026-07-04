@@ -42,8 +42,7 @@ class GetRandomJokeEntityTest < Minitest::Test
     # LOAD
     get_random_joke_ref01_ent = client.GetRandomJoke(nil)
     get_random_joke_ref01_match_dt0 = {}
-    get_random_joke_ref01_data_dt0_loaded, err = get_random_joke_ref01_ent.load(get_random_joke_ref01_match_dt0, nil)
-    assert_nil err
+    get_random_joke_ref01_data_dt0_loaded = get_random_joke_ref01_ent.load(get_random_joke_ref01_match_dt0, nil)
     assert !get_random_joke_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def get_random_joke_basic_setup(extra)
     "YOMAMA_TEST_GET_RANDOM_JOKE_ENTID" => idmap,
     "YOMAMA_TEST_LIVE" => "FALSE",
     "YOMAMA_TEST_EXPLAIN" => "FALSE",
-    "YOMAMA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def get_random_joke_basic_setup(extra)
   if env["YOMAMA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["YOMAMA_APIKEY"],
       },
       extra || {},
     ])

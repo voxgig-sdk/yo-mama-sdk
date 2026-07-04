@@ -43,8 +43,7 @@ class CategoryEntityTest < Minitest::Test
     category_ref01_ent = client.Category(nil)
     category_ref01_match = {}
 
-    category_ref01_list_result, err = category_ref01_ent.list(category_ref01_match, nil)
-    assert_nil err
+    category_ref01_list_result = category_ref01_ent.list(category_ref01_match, nil)
     assert category_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def category_basic_setup(extra)
     "YOMAMA_TEST_CATEGORY_ENTID" => idmap,
     "YOMAMA_TEST_LIVE" => "FALSE",
     "YOMAMA_TEST_EXPLAIN" => "FALSE",
-    "YOMAMA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def category_basic_setup(extra)
   if env["YOMAMA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["YOMAMA_APIKEY"],
       },
       extra || {},
     ])

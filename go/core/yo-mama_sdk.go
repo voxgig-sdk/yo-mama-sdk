@@ -245,16 +245,25 @@ func (sdk *YoMamaSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// Category returns a Category entity bound to this client.
+// Idiomatic usage: client.Category(nil).List(nil, nil) or
+// client.Category(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *YoMamaSDK) Category(data map[string]any) YoMamaEntity {
 	return NewCategoryEntityFunc(sdk, data)
 }
 
 
+// GetRandomJoke returns a GetRandomJoke entity bound to this client.
+// Idiomatic usage: client.GetRandomJoke(nil).List(nil, nil) or
+// client.GetRandomJoke(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *YoMamaSDK) GetRandomJoke(data map[string]any) YoMamaEntity {
 	return NewGetRandomJokeEntityFunc(sdk, data)
 }
 
 
+// Joke returns a Joke entity bound to this client.
+// Idiomatic usage: client.Joke(nil).List(nil, nil) or
+// client.Joke(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *YoMamaSDK) Joke(data map[string]any) YoMamaEntity {
 	return NewJokeEntityFunc(sdk, data)
 }

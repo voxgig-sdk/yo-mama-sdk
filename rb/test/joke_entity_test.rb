@@ -43,8 +43,7 @@ class JokeEntityTest < Minitest::Test
     joke_ref01_ent = client.Joke(nil)
     joke_ref01_match = {}
 
-    joke_ref01_list_result, err = joke_ref01_ent.list(joke_ref01_match, nil)
-    assert_nil err
+    joke_ref01_list_result = joke_ref01_ent.list(joke_ref01_match, nil)
     assert joke_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def joke_basic_setup(extra)
     "YOMAMA_TEST_JOKE_ENTID" => idmap,
     "YOMAMA_TEST_LIVE" => "FALSE",
     "YOMAMA_TEST_EXPLAIN" => "FALSE",
-    "YOMAMA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def joke_basic_setup(extra)
   if env["YOMAMA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["YOMAMA_APIKEY"],
       },
       extra || {},
     ])

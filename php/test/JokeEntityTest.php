@@ -50,8 +50,7 @@ class JokeEntityTest extends TestCase
         $joke_ref01_ent = $client->Joke(null);
         $joke_ref01_match = [];
 
-        [$joke_ref01_list_result, $err] = $joke_ref01_ent->list($joke_ref01_match, null);
-        $this->assertNull($err);
+        $joke_ref01_list_result = $joke_ref01_ent->list($joke_ref01_match, null);
         $this->assertIsArray($joke_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function joke_basic_setup($extra)
         "YOMAMA_TEST_JOKE_ENTID" => $idmap,
         "YOMAMA_TEST_LIVE" => "FALSE",
         "YOMAMA_TEST_EXPLAIN" => "FALSE",
-        "YOMAMA_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function joke_basic_setup($extra)
     if ($env["YOMAMA_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["YOMAMA_APIKEY"],
             ],
             $extra ?? [],
         ]);

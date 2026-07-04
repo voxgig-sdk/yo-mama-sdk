@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -134,7 +133,7 @@ Alias for `YoMamaSDK.test()`.
 ## CategoryEntity
 
 ```ts
-const category = client.Category()
+const category = client.category
 ```
 
 ### Fields
@@ -150,7 +149,7 @@ const category = client.Category()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Category().list()
+const results = await client.category.list()
 ```
 
 ### Common Methods
@@ -184,7 +183,7 @@ Return a copy of the entity options.
 ## GetRandomJokeEntity
 
 ```ts
-const get_random_joke = client.GetRandomJoke()
+const get_random_joke = client.get_random_joke
 ```
 
 ### Fields
@@ -200,7 +199,7 @@ const get_random_joke = client.GetRandomJoke()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetRandomJoke().load({ id: 'get_random_joke_id' })
+const result = await client.get_random_joke.load({ id: 'get_random_joke_id' })
 ```
 
 ### Common Methods
@@ -234,7 +233,7 @@ Return a copy of the entity options.
 ## JokeEntity
 
 ```ts
-const joke = client.Joke()
+const joke = client.joke
 ```
 
 ### Fields
@@ -250,7 +249,7 @@ const joke = client.Joke()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Joke().list()
+const results = await client.joke.list()
 ```
 
 ### Common Methods
