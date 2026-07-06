@@ -10,16 +10,19 @@
 ---@field category? table
 
 ---@class CategoryListMatch
+---@field category? table
 
 ---@class GetRandomJoke
 ---@field joke string
 
 ---@class GetRandomJokeLoadMatch
+---@field joke? string
 
 ---@class Joke
 ---@field joke string
 
 ---@class JokeListMatch
+---@field joke? string
 
 local M = {}
 

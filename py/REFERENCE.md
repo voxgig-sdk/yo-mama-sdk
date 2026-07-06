@@ -8,7 +8,7 @@ Complete API reference for the YoMama Python SDK.
 ### Constructor
 
 ```python
-from yo-mama_sdk import YoMamaSDK
+from yomama_sdk import YoMamaSDK
 
 client = YoMamaSDK(options)
 ```
@@ -95,16 +95,16 @@ category = client.Category()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$ARRAY`` | No |  |
+| `category` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Category().list({})
+results = client.Category().list()
 for category in results:
     print(category)
 ```
@@ -148,7 +148,7 @@ get_random_joke = client.GetRandomJoke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `str` | Yes |  |
 
 ### Operations
 
@@ -157,7 +157,7 @@ get_random_joke = client.GetRandomJoke()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GetRandomJoke().load({"id": "get_random_joke_id"})
+result = client.GetRandomJoke().load()
 ```
 
 ### Common Methods
@@ -199,16 +199,16 @@ joke = client.Joke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Joke().list({})
+results = client.Joke().list()
 for joke in results:
     print(joke)
 ```

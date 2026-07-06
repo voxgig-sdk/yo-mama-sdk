@@ -140,7 +140,7 @@ const category = client.Category()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$ARRAY`` | No |  |
+| `category` | `any[]` | No |  |
 
 ### Operations
 
@@ -190,7 +190,7 @@ const get_random_joke = client.GetRandomJoke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `string` | Yes |  |
 
 ### Operations
 
@@ -199,7 +199,7 @@ const get_random_joke = client.GetRandomJoke()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetRandomJoke().load({ id: 'get_random_joke_id' })
+const result = await client.GetRandomJoke().load()
 ```
 
 ### Common Methods
@@ -240,7 +240,7 @@ const joke = client.Joke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `string` | Yes |  |
 
 ### Operations
 

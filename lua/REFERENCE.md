@@ -98,7 +98,7 @@ local category = client:Category(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$ARRAY`` | No |  |
+| `category` | `table` | No |  |
 
 ### Operations
 
@@ -150,7 +150,7 @@ local get_random_joke = client:GetRandomJoke(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `string` | Yes |  |
 
 ### Operations
 
@@ -159,7 +159,7 @@ local get_random_joke = client:GetRandomJoke(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetRandomJoke():load({ id = "get_random_joke_id" })
+local result, err = client:GetRandomJoke():load()
 ```
 
 ### Common Methods
@@ -202,7 +202,7 @@ local joke = client:Joke(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `string` | Yes |  |
 
 ### Operations
 

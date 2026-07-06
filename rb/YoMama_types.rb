@@ -17,7 +17,7 @@ Category = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Category#list (any subset of Category fields).
+# Request payload for Category#list.
 #
 # @!attribute [rw] category
 #   @return [Array, nil]
@@ -35,7 +35,7 @@ GetRandomJoke = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetRandomJoke#load (any subset of GetRandomJoke fields).
+# Request payload for GetRandomJoke#load.
 #
 # @!attribute [rw] joke
 #   @return [String, nil]
@@ -53,7 +53,7 @@ Joke = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Joke#list (any subset of Joke fields).
+# Request payload for Joke#list.
 #
 # @!attribute [rw] joke
 #   @return [String, nil]

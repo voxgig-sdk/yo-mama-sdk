@@ -221,19 +221,19 @@ class YoMamaSDK:
 
 
     def Category(self, data=None) -> "CategoryEntity":
-        """Entity factory: client.Category().list({}) / client.Category().load({"id": ...})."""
+        """Entity factory: client.Category().list() / client.Category().load({"id": ...})."""
         from entity.category_entity import CategoryEntity
         return CategoryEntity(self, data)
 
 
     def GetRandomJoke(self, data=None) -> "GetRandomJokeEntity":
-        """Entity factory: client.GetRandomJoke().list({}) / client.GetRandomJoke().load({"id": ...})."""
+        """Entity factory: client.GetRandomJoke().list() / client.GetRandomJoke().load({"id": ...})."""
         from entity.get_random_joke_entity import GetRandomJokeEntity
         return GetRandomJokeEntity(self, data)
 
 
     def Joke(self, data=None) -> "JokeEntity":
-        """Entity factory: client.Joke().list({}) / client.Joke().load({"id": ...})."""
+        """Entity factory: client.Joke().list() / client.Joke().load({"id": ...})."""
         from entity.joke_entity import JokeEntity
         return JokeEntity(self, data)
 

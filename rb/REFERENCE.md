@@ -8,7 +8,7 @@ Complete API reference for the YoMama Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'yo-mama_sdk'
+require_relative 'YoMama_sdk'
 
 client = YoMamaSDK.new(options)
 ```
@@ -101,16 +101,16 @@ category = client.Category
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$ARRAY`` | No |  |
+| `category` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Category.list(nil)
+results = client.Category.list
 ```
 
 ### Common Methods
@@ -153,7 +153,7 @@ get_random_joke = client.GetRandomJoke
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `String` | Yes |  |
 
 ### Operations
 
@@ -162,7 +162,7 @@ get_random_joke = client.GetRandomJoke
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GetRandomJoke.load({ "id" => "get_random_joke_id" })
+result = client.GetRandomJoke.load()
 ```
 
 ### Common Methods
@@ -205,16 +205,16 @@ joke = client.Joke
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `String` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Joke.list(nil)
+results = client.Joke.list
 ```
 
 ### Common Methods

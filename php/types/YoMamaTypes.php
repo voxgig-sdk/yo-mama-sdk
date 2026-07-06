@@ -18,7 +18,7 @@ class Category
     public ?array $category = null;
 }
 
-/** Match filter for Category#list (any subset of Category fields). */
+/** Request payload for Category#list. */
 class CategoryListMatch
 {
     public ?array $category = null;
@@ -30,7 +30,7 @@ class GetRandomJoke
     public string $joke;
 }
 
-/** Match filter for GetRandomJoke#load (any subset of GetRandomJoke fields). */
+/** Request payload for GetRandomJoke#load. */
 class GetRandomJokeLoadMatch
 {
     public ?string $joke = null;
@@ -42,7 +42,7 @@ class Joke
     public string $joke;
 }
 
-/** Match filter for Joke#list (any subset of Joke fields). */
+/** Request payload for Joke#list. */
 class JokeListMatch
 {
     public ?string $joke = null;

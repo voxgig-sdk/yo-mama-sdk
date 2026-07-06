@@ -105,7 +105,7 @@ category := client.Category(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | ``$ARRAY`` | No |  |
+| `category` | `[]any` | No |  |
 
 ### Operations
 
@@ -151,7 +151,7 @@ get_random_joke := client.GetRandomJoke(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `string` | Yes |  |
 
 ### Operations
 
@@ -160,7 +160,7 @@ get_random_joke := client.GetRandomJoke(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GetRandomJoke(nil).Load(map[string]any{"id": "get_random_joke_id"}, nil)
+result, err := client.GetRandomJoke(nil).Load(nil, nil)
 ```
 
 ### Common Methods
@@ -197,7 +197,7 @@ joke := client.Joke(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | ``$STRING`` | Yes |  |
+| `joke` | `string` | Yes |  |
 
 ### Operations
 

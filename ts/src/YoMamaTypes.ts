@@ -9,17 +9,23 @@ export interface Category {
   category?: any[]
 }
 
-export type CategoryListMatch = Partial<Category>
+export interface CategoryListMatch {
+  category?: any[]
+}
 
 export interface GetRandomJoke {
   joke: string
 }
 
-export type GetRandomJokeLoadMatch = Partial<GetRandomJoke>
+export interface GetRandomJokeLoadMatch {
+  joke?: string
+}
 
 export interface Joke {
   joke: string
 }
 
-export type JokeListMatch = Partial<Joke>
+export interface JokeListMatch {
+  joke?: string
+}
 

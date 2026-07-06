@@ -13,8 +13,7 @@ type Category struct {
 	Category *[]any `json:"category,omitempty"`
 }
 
-// CategoryListMatch mirrors the category fields as an all-optional match
-// filter (Go analog of Partial<Category>).
+// CategoryListMatch is the typed request payload for Category.ListTyped.
 type CategoryListMatch struct {
 	Category *[]any `json:"category,omitempty"`
 }
@@ -24,8 +23,7 @@ type GetRandomJoke struct {
 	Joke string `json:"joke"`
 }
 
-// GetRandomJokeLoadMatch mirrors the get_random_joke fields as an all-optional match
-// filter (Go analog of Partial<GetRandomJoke>).
+// GetRandomJokeLoadMatch is the typed request payload for GetRandomJoke.LoadTyped.
 type GetRandomJokeLoadMatch struct {
 	Joke *string `json:"joke,omitempty"`
 }
@@ -35,8 +33,7 @@ type Joke struct {
 	Joke string `json:"joke"`
 }
 
-// JokeListMatch mirrors the joke fields as an all-optional match
-// filter (Go analog of Partial<Joke>).
+// JokeListMatch is the typed request payload for Joke.ListTyped.
 type JokeListMatch struct {
 	Joke *string `json:"joke,omitempty"`
 }
