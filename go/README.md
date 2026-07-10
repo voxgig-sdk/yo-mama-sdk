@@ -324,7 +324,7 @@ fmt.Println(categorys) // the array of records
 
 ### GetRandomJoke
 
-Create an instance: `get_random_joke := client.GetRandomJoke(nil)`
+Create an instance: `getRandomJoke := client.GetRandomJoke(nil)`
 
 #### Operations
 
@@ -341,11 +341,11 @@ Create an instance: `get_random_joke := client.GetRandomJoke(nil)`
 #### Example: Load
 
 ```go
-get_random_joke, err := client.GetRandomJoke(nil).Load(nil, nil)
+getRandomJoke, err := client.GetRandomJoke(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(get_random_joke) // the loaded record
+fmt.Println(getRandomJoke) // the loaded record
 ```
 
 

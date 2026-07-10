@@ -99,6 +99,7 @@ same parameters as `Direct()`.
 
 ```go
 category := client.Category(nil)
+fmt.Println(category.GetName()) // "category"
 ```
 
 ### Fields
@@ -115,6 +116,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Category(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods
@@ -144,7 +149,8 @@ Return the entity name.
 ## GetRandomJokeEntity
 
 ```go
-get_random_joke := client.GetRandomJoke(nil)
+getRandomJoke := client.GetRandomJoke(nil)
+fmt.Println(getRandomJoke.GetName()) // "get_random_joke"
 ```
 
 ### Fields
@@ -161,6 +167,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.GetRandomJoke(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -191,6 +201,7 @@ Return the entity name.
 
 ```go
 joke := client.Joke(nil)
+fmt.Println(joke.GetName()) // "joke"
 ```
 
 ### Fields
@@ -207,6 +218,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Joke(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

@@ -15,9 +15,9 @@ main: {
           url: "https://api.yomomma.info"
         }
       ]
+      summary: "API for retrieving jokes by random, category, or list based on Yo Mama jokes."
       title: "Yo Mama API"
       version: "1.0.0"
+      website: "https://www.yomama-jokes.com/docs/"
     }
   }
-}
-

@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -339,14 +336,17 @@
           "url": "https://www.yomama-jokes.com/docs/"
         },
         "description": "API for retrieving jokes by random, category, or list based on Yo Mama jokes. No authentication required.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.yomomma.info"
           }
         ],
+        "summary": "API for retrieving jokes by random, category, or list based on Yo Mama jokes.",
         "title": "Yo Mama API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://www.yomama-jokes.com/docs/"
       },
       "option": {},
       "target": {
@@ -399,6 +399,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -449,6 +452,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
