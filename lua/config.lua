@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- YoMama SDK configuration
 
 local function make_config()
   return {

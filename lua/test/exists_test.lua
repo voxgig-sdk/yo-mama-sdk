@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- YoMama SDK exists test
 
 local sdk = require("yo-mama_sdk")
 
