@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ YoMamaUtility.registrar = ->(u) {
   u.prepare_params = YoMamaUtilities::PrepareParams
   u.prepare_path = YoMamaUtilities::PreparePath
   u.prepare_query = YoMamaUtilities::PrepareQuery
+  u.graphql_body = YoMamaUtilities::GraphqlBody
+  u.graphql_errors = YoMamaUtilities::GraphqlErrors
   u.result_basic = YoMamaUtilities::ResultBasic
   u.result_body = YoMamaUtilities::ResultBody
   u.result_headers = YoMamaUtilities::ResultHeaders

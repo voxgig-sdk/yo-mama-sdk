@@ -95,7 +95,7 @@ category = client.Category()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `list` | No |  |
+| `categories` | `list` | No |  |
 
 ### Operations
 

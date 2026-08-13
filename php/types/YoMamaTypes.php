@@ -15,13 +15,13 @@ declare(strict_types=1);
 /** Category entity data model. */
 class Category
 {
-    public ?array $category = null;
+    public ?array $categories = null;
 }
 
 /** Request payload for Category#list. */
 class CategoryListMatch
 {
-    public ?array $category = null;
+    public ?array $categories = null;
 }
 
 /** GetRandomJoke entity data model. */

@@ -10,19 +10,19 @@
 
 # Category entity data model.
 #
-# @!attribute [rw] category
+# @!attribute [rw] categories
 #   @return [Array, nil]
 Category = Struct.new(
-  :category,
+  :categories,
   keyword_init: true
 )
 
 # Request payload for Category#list.
 #
-# @!attribute [rw] category
+# @!attribute [rw] categories
 #   @return [Array, nil]
 CategoryListMatch = Struct.new(
-  :category,
+  :categories,
   keyword_init: true
 )
 

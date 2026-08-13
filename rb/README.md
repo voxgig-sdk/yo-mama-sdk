@@ -37,7 +37,7 @@ begin
   # list returns an Array of Category records — iterate directly.
   categorys = client.Category.list
   categorys.each do |item|
-    puts "#{item["category"]}"
+    puts "#{item["categories"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = YoMamaSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 category = client.Category.list()
 puts category
 ```
@@ -239,7 +240,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
+| `categories` |  |
 
 Operations: List.
 
@@ -284,7 +285,7 @@ Create an instance: `category = client.Category`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `Array` |  |
+| `categories` | `Array` |  |
 
 #### Example: List
 
@@ -313,7 +314,7 @@ Create an instance: `get_random_joke = client.GetRandomJoke`
 #### Example: Load
 
 ```ruby
-# load returns the bare GetRandomJoke record (raises on error).
+# load returns the ENTITY — call data_get for the GetRandomJoke record (raises on error).
 get_random_joke = client.GetRandomJoke.load()
 ```
 

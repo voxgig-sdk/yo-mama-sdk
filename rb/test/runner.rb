@@ -23,8 +23,8 @@ module YoMamaTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("YOMAMA_TEST_LIVE")
-    override = getenv("YOMAMA_TEST_OVERRIDE")
+    live = getenv("YO_MAMA_TEST_LIVE")
+    override = getenv("YO_MAMA_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module YoMamaTestRunner
       end
     end
 
-    explain = getenv("YOMAMA_TEST_EXPLAIN")
-    m["YOMAMA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("YO_MAMA_TEST_EXPLAIN")
+    m["YO_MAMA_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

@@ -100,7 +100,7 @@ $category = $client->Category();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `array` | No |  |
+| `categories` | `array` | No |  |
 
 ### Operations
 

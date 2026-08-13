@@ -16,11 +16,11 @@
 import pytest
 
 from yomama_sdk import YoMamaSDK
-from core.error import YoMamaError
-from core.result import YoMamaResult
-from core.response import YoMamaResponse
-from core.spec import YoMamaSpec
-from feature.base_feature import YoMamaBaseFeature
+from yomama_sdk.core.error import YoMamaError
+from yomama_sdk.core.result import YoMamaResult
+from yomama_sdk.core.response import YoMamaResponse
+from yomama_sdk.core.spec import YoMamaSpec
+from yomama_sdk.feature.base_feature import YoMamaBaseFeature
 
 
 def _client():

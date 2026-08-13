@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'YoMama',
   }
 
 
@@ -62,7 +62,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "category",
+          "name": "categories",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -77,6 +77,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/categories",
               "parts": [
@@ -85,7 +86,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.categories`"
               },
               "index$": 0
             }
@@ -116,6 +117,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/",
               "parts": [],
@@ -164,6 +166,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/jokes",
               "parts": [

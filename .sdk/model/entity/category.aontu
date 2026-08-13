@@ -6,7 +6,7 @@ main: kit: entity: category: {
 
   fields: [
     {
-      name: "category"
+      name: "categories"
       req: false
       type: "`$ARRAY`"
     }
@@ -25,7 +25,7 @@ main: kit: entity: category: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.categories`"
           }
         }
       ]

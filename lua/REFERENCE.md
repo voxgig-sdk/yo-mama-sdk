@@ -98,7 +98,7 @@ local category = client:Category(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `table` | No |  |
+| `categories` | `table` | No |  |
 
 ### Operations
 

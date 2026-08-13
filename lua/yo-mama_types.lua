@@ -7,10 +7,10 @@
 -- edit by hand.
 
 ---@class Category
----@field category? table
+---@field categories? table
 
 ---@class CategoryListMatch
----@field category? table
+---@field categories? table
 
 ---@class GetRandomJoke
 ---@field joke string

@@ -2,20 +2,20 @@
   "existing": {
     "category": {
       "CATEGORY00": {
-        "category": []
+        "categories": []
       },
       "CATEGORY01": {
-        "category": []
+        "categories": []
       },
       "CATEGORY02": {
-        "category": []
+        "categories": []
       }
     }
   },
   "new": {
     "category": {
       "category_ref01": {
-        "category": []
+        "categories": []
       }
     }
   }

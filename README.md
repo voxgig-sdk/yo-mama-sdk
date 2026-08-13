@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = YoMamaSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = YoMamaSDK.test({
+  entity: {
+    category: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const categorys = await client.Category().list()
-// categorys is an array of bare Category records populated with mock data
+// categorys is an array of Category entities, populated with mock data
+// — call categorys[0].data() for the record itself
 console.log(categorys)
 ```
 
@@ -110,7 +119,7 @@ import { YoMamaSDK } from '@voxgig-sdk/yo-mama'
 
 const client = new YoMamaSDK()
 
-// List all categorys (returns Category[])
+// List all categorys (returns CategoryEntity[] — .data() for the record)
 const categorys = await client.Category().list()
 for (const category of categorys) {
   console.log(category)
@@ -345,6 +354,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.yomama-jokes.com/docs/](https://www.yomama-jokes.com/docs/)
 

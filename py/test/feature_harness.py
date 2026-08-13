@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import YoMamaControl
-from core.error import YoMamaError
-from core.result import YoMamaResult
-from core.spec import YoMamaSpec
+from yomama_sdk.config import make_config
+from yomama_sdk.features import _make_feature
+from yomama_sdk.core.control import YoMamaControl
+from yomama_sdk.core.error import YoMamaError
+from yomama_sdk.core.result import YoMamaResult
+from yomama_sdk.core.spec import YoMamaSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -29,7 +29,7 @@ module YoMamaConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "category",
+              "name" => "categories",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -44,6 +44,7 @@ module YoMamaConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/categories",
                   "parts" => [
@@ -52,7 +53,7 @@ module YoMamaConfig
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.categories`",
                   },
                   "index$" => 0,
                 },
@@ -83,6 +84,7 @@ module YoMamaConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
                   "parts" => [],
@@ -131,6 +133,7 @@ module YoMamaConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/jokes",
                   "parts" => [

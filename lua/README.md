@@ -43,7 +43,7 @@ local categorys, err = client:Category():list()
 if err then error(err) end
 
 for _, item in ipairs(categorys) do
-  print(item["category"])
+  print(item["categories"])
 end
 ```
 
@@ -222,9 +222,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local category, err = client:Category():load()
+    local get_random_joke, err = client:GetRandomJoke():load()
     if err then error(err) end
-    -- category is the loaded record
+    -- get_random_joke is the loaded record
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -235,7 +235,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
+| `categories` |  |
 
 Operations: List.
 
@@ -280,7 +280,7 @@ Create an instance: `local category = client:Category(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `table` |  |
+| `categories` | `table` |  |
 
 #### Example: List
 

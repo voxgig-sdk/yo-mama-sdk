@@ -6,11 +6,11 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Category {
-  category?: any[]
+  categories?: any[]
 }
 
 export interface CategoryListMatch {
-  category?: any[]
+  categories?: any[]
 }
 
 export interface GetRandomJoke {

@@ -35,7 +35,9 @@ const client = new YoMamaSDK()
 
 ### 2. List category records
 
-`list()` resolves to an array of Category objects — iterate it directly:
+`list()` resolves to an array of Category ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const categorys = await client.Category().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = YoMamaSDK.test()
 
 const category = await client.Category().list()
-// category is a bare entity populated with mock response data
+// category is the entity, populated with mock response data
+// — call category.data() for the record itself
 console.log(category)
 ```
 
@@ -288,7 +291,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
+| `categories` |  |
 
 Operations: list.
 
@@ -333,7 +336,7 @@ Create an instance: `const category = client.Category()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `any[]` |  |
+| `categories` | `any[]` |  |
 
 #### Example: List
 

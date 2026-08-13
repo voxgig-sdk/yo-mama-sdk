@@ -34,7 +34,7 @@ class YoMamaConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'category',
+              'name' => 'categories',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
@@ -49,6 +49,7 @@ class YoMamaConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/categories',
                   'parts' => [
@@ -57,7 +58,7 @@ class YoMamaConfig
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.categories`',
                   ],
                   'index$' => 0,
                 ],
@@ -88,6 +89,7 @@ class YoMamaConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/',
                   'parts' => [],
@@ -136,6 +138,7 @@ class YoMamaConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/jokes',
                   'parts' => [

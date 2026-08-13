@@ -38,7 +38,7 @@ try {
     // list() returns an array of Category records — iterate directly.
     $categorys = $client->Category()->list();
     foreach ($categorys as $item) {
-        echo $item["category"] . "\n";
+        echo $item["categories"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -125,7 +125,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = YoMamaSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $category = $client->Category()->list();
 print_r($category);
 ```
@@ -227,7 +228,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -249,7 +250,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `category` |  |
+| `categories` |  |
 
 Operations: List.
 
@@ -294,7 +295,7 @@ Create an instance: `$category = $client->Category();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `array` |  |
+| `categories` | `array` |  |
 
 #### Example: List
 
@@ -323,7 +324,7 @@ Create an instance: `$get_random_joke = $client->GetRandomJoke();`
 #### Example: Load
 
 ```php
-// load() returns the bare GetRandomJoke record (throws on error).
+// load() returns the ENTITY — call data_get() for the GetRandomJoke record (throws on error).
 $get_random_joke = $client->GetRandomJoke()->load();
 ```
 

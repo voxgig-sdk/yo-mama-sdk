@@ -101,7 +101,7 @@ category = client.Category
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `Array` | No |  |
+| `categories` | `Array` | No |  |
 
 ### Operations
 

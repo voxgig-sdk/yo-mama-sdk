@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# YoMama SDK exists test
 
 import pytest
 from yomama_sdk import YoMamaSDK

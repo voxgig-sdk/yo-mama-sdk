@@ -264,7 +264,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"category"` |  |
+| `"categories"` |  |
 
 Operations: List.
 
@@ -309,7 +309,7 @@ Create an instance: `category := client.Category(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `category` | `[]any` |  |
+| `categories` | `[]any` |  |
 
 #### Example: List
 

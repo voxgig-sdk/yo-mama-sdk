@@ -26,8 +26,8 @@ import {
 describe('GetRandomJokeEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when YOMAMA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('YOMAMA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when YO_MAMA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('YO_MAMA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = YoMamaSDK.test()
@@ -62,7 +62,7 @@ describe('GetRandomJokeEntity', async () => {
     // LOAD
     const get_random_joke_ref01_ent = client.GetRandomJoke()
     const get_random_joke_ref01_match_dt0: any = {}
-    const get_random_joke_ref01_data_dt0 = await get_random_joke_ref01_ent.load(get_random_joke_ref01_match_dt0)
+    const get_random_joke_ref01_data_dt0 = (await get_random_joke_ref01_ent.load(get_random_joke_ref01_match_dt0)).data()
     assert(null != get_random_joke_ref01_data_dt0)
 
 

@@ -106,7 +106,7 @@ fmt.Println(category.GetName()) // "category"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `category` | `[]any` | No |  |
+| `categories` | `[]any` | No |  |
 
 ### Operations
 

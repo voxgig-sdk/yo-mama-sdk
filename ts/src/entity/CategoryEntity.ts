@@ -37,7 +37,7 @@ class CategoryEntity extends YoMamaEntityBase<Category> {
 
 
 
-  async list(this: any, reqmatch?: CategoryListMatch, ctrl?: Control): Promise<Category[]> {
+  async list(this: any, reqmatch?: CategoryListMatch, ctrl?: Control): Promise<CategoryEntity[]> {
 
     const utility = this._utility
 

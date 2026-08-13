@@ -37,7 +37,7 @@ class JokeEntity extends YoMamaEntityBase<Joke> {
 
 
 
-  async list(this: any, reqmatch?: JokeListMatch, ctrl?: Control): Promise<Joke[]> {
+  async list(this: any, reqmatch?: JokeListMatch, ctrl?: Control): Promise<JokeEntity[]> {
 
     const utility = this._utility
 

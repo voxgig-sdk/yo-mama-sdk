@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from yomama_sdk.utility.voxgig_struct import voxgig_struct as vs
 from yomama_sdk import YoMamaSDK
-from core import helpers
+from yomama_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _get_random_joke_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "YOMAMA_TEST_GET_RANDOM_JOKE_ENTID": {},
-        "YOMAMA_TEST_LIVE": "FALSE",
+        "YO_MAMA_TEST_GET_RANDOM_JOKE_ENTID": {},
+        "YO_MAMA_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("YOMAMA_TEST_LIVE") == "TRUE"
+    live = env.get("YO_MAMA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
