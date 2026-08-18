@@ -28,7 +28,7 @@ class YoMamaSDK
     utility = YoMamaUtility.new
     @_utility = utility
 
-    config = YoMamaConfig.make_config
+    config = YoMamaConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

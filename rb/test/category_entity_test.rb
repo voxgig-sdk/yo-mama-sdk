@@ -33,7 +33,7 @@ class CategoryEntityTest < Minitest::Test
     assert_equal 3, seen.length
 
     # Inbound: streaming active -> yields each item from the feature.
-    cfg = YoMamaConfig.make_config
+    cfg = YoMamaConfig.shared_config
     if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
       sdk = YoMamaSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
       got = []

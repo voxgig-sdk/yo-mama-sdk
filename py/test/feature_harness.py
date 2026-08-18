@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from yomama_sdk.config import make_config
+from yomama_sdk.config import shared_config
 from yomama_sdk.features import _make_feature
 from yomama_sdk.core.control import YoMamaControl
 from yomama_sdk.core.error import YoMamaError
@@ -24,7 +24,7 @@ from yomama_sdk.core.spec import YoMamaSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

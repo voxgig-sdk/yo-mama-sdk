@@ -40,7 +40,7 @@ class JokeEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = YoMamaConfig::make_config();
+        $cfg = YoMamaConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = YoMamaSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

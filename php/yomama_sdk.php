@@ -40,7 +40,7 @@ class YoMamaSDK
         $utility = new YoMamaUtility();
         $this->_utility = $utility;
 
-        $config = YoMamaConfig::make_config();
+        $config = YoMamaConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

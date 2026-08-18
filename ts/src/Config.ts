@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://api.yomomma.info',
+    base: "https://api.yomomma.info",
 
     headers: {
       "content-type": "application/json"
@@ -61,11 +61,8 @@ class Config {
     "category": {
       "fields": [
         {
-          "active": true,
           "name": "categories",
-          "req": false,
-          "type": "`$ARRAY`",
-          "index$": 0
+          "type": "`$ARRAY`"
         }
       ],
       "name": "category",
@@ -75,7 +72,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -87,11 +83,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.categories`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {
@@ -101,11 +95,9 @@ class Config {
     "get_random_joke": {
       "fields": [
         {
-          "active": true,
           "name": "joke",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         }
       ],
       "name": "get_random_joke",
@@ -115,7 +107,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -125,11 +116,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
@@ -139,11 +128,9 @@ class Config {
     "joke": {
       "fields": [
         {
-          "active": true,
           "name": "joke",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         }
       ],
       "name": "joke",
@@ -153,15 +140,12 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "type",
                     "orig": "type",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -180,11 +164,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

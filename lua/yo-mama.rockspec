@@ -23,6 +23,7 @@ build = {
   modules = {
     ["yo-mama_sdk"] = "yo-mama_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

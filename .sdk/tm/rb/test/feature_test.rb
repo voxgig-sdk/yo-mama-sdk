@@ -15,7 +15,7 @@ require_relative "../YoMama_sdk"
 module YoMamaFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = YoMamaConfig.make_config["feature"]
+    f = YoMamaConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
