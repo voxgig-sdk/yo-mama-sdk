@@ -19,6 +19,9 @@ module YoMamaConfig
     {
       "main" => {
         "name" => "YoMama",
+        "slug" => "yo-mama",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -78,6 +81,7 @@ module YoMamaConfig
             {
               "name" => "joke",
               "req" => true,
+              "short" => "The joke text",
               "type" => "`$STRING`",
             },
           ],
@@ -111,6 +115,7 @@ module YoMamaConfig
             {
               "name" => "joke",
               "req" => true,
+              "short" => "The joke text",
               "type" => "`$STRING`",
             },
           ],

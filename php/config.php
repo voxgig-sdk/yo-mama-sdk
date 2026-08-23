@@ -33,6 +33,9 @@ class YoMamaConfig
         return [
             "main" => [
                 "name" => "YoMama",
+                "slug" => "yo-mama",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -92,6 +95,7 @@ class YoMamaConfig
             [
               'name' => 'joke',
               'req' => true,
+              'short' => 'The joke text',
               'type' => '`$STRING`',
             ],
           ],
@@ -125,6 +129,7 @@ class YoMamaConfig
             [
               'name' => 'joke',
               'req' => true,
+              'short' => 'The joke text',
               'type' => '`$STRING`',
             ],
           ],

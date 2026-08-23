@@ -190,7 +190,7 @@ const get_random_joke = client.GetRandomJoke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | `string` | Yes |  |
+| `joke` | `string` | Yes | The joke text |
 
 ### Operations
 
@@ -240,7 +240,7 @@ const joke = client.Joke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | `string` | Yes |  |
+| `joke` | `string` | Yes | The joke text |
 
 ### Operations
 

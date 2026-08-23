@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "YoMama",
+			"slug": "yo-mama",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -70,6 +73,7 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "joke",
 						"req": true,
+						"short": "The joke text",
 						"type": "`$STRING`",
 					},
 				},
@@ -103,6 +107,7 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "joke",
 						"req": true,
+						"short": "The joke text",
 						"type": "`$STRING`",
 					},
 				},

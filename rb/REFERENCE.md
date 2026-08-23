@@ -153,7 +153,7 @@ get_random_joke = client.GetRandomJoke
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | `String` | Yes |  |
+| `joke` | `String` | Yes | The joke text |
 
 ### Operations
 
@@ -205,7 +205,7 @@ joke = client.Joke
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | `String` | Yes |  |
+| `joke` | `String` | Yes | The joke text |
 
 ### Operations
 

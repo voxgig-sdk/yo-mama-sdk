@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "YoMama",
+      slug = "yo-mama",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -66,6 +69,7 @@ local function make_config()
           {
             ["name"] = "joke",
             ["req"] = true,
+            ["short"] = "The joke text",
             ["type"] = "`$STRING`",
           },
         },
@@ -99,6 +103,7 @@ local function make_config()
           {
             ["name"] = "joke",
             ["req"] = true,
+            ["short"] = "The joke text",
             ["type"] = "`$STRING`",
           },
         },

@@ -157,7 +157,7 @@ fmt.Println(getRandomJoke.GetName()) // "get_random_joke"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | `string` | Yes |  |
+| `joke` | `string` | Yes | The joke text |
 
 ### Operations
 
@@ -208,7 +208,7 @@ fmt.Println(joke.GetName()) // "joke"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | `string` | Yes |  |
+| `joke` | `string` | Yes | The joke text |
 
 ### Operations
 

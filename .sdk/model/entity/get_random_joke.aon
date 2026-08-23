@@ -8,6 +8,7 @@ main: kit: entity: get_random_joke: {
     {
       name: "joke"
       req: true
+      short: "The joke text"
       type: "`$STRING`"
     }
   ]

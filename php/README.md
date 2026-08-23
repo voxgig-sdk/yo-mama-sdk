@@ -260,7 +260,7 @@ API path: `/categories`
 
 | Field | Description |
 | --- | --- |
-| `joke` |  |
+| `joke` | The joke text |
 
 Operations: Load.
 
@@ -270,7 +270,7 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `joke` |  |
+| `joke` | The joke text |
 
 Operations: List.
 
@@ -319,7 +319,7 @@ Create an instance: `$get_random_joke = $client->GetRandomJoke();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `joke` | `string` |  |
+| `joke` | `string` | The joke text |
 
 #### Example: Load
 
@@ -343,7 +343,7 @@ Create an instance: `$joke = $client->Joke();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `joke` | `string` |  |
+| `joke` | `string` | The joke text |
 
 #### Example: List
 

@@ -150,7 +150,7 @@ local get_random_joke = client:GetRandomJoke(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | `string` | Yes |  |
+| `joke` | `string` | Yes | The joke text |
 
 ### Operations
 
@@ -202,7 +202,7 @@ local joke = client:Joke(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `joke` | `string` | Yes |  |
+| `joke` | `string` | Yes | The joke text |
 
 ### Operations
 

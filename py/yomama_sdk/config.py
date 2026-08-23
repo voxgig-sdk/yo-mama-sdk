@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "YoMama",
+            "slug": "yo-mama",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -87,6 +90,7 @@ def make_config():
           {
             "name": "joke",
             "req": True,
+            "short": "The joke text",
             "type": "`$STRING`",
           },
         ],
@@ -120,6 +124,7 @@ def make_config():
           {
             "name": "joke",
             "req": True,
+            "short": "The joke text",
             "type": "`$STRING`",
           },
         ],
