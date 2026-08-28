@@ -45,6 +45,6 @@ class Joke
 /** Request payload for Joke#list. */
 class JokeListMatch
 {
-    public ?string $joke = null;
+    public ?string $type = null;
 }
 

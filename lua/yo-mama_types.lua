@@ -22,7 +22,7 @@
 ---@field joke string
 
 ---@class JokeListMatch
----@field joke? string
+---@field type? string
 
 local M = {}
 

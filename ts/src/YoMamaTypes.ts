@@ -26,6 +26,6 @@ export interface Joke {
 }
 
 export interface JokeListMatch {
-  joke?: string
+  type?: string
 }
 

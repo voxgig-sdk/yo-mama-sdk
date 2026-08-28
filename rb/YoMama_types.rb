@@ -55,10 +55,10 @@ Joke = Struct.new(
 
 # Request payload for Joke#list.
 #
-# @!attribute [rw] joke
+# @!attribute [rw] type
 #   @return [String, nil]
 JokeListMatch = Struct.new(
-  :joke,
+  :type,
   keyword_init: true
 )
 

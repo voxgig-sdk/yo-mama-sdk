@@ -39,7 +39,7 @@ type Joke struct {
 
 // JokeListMatch is the typed request payload for Joke.ListTyped.
 type JokeListMatch struct {
-	Joke *string `json:"joke,omitempty"`
+	Type *string `json:"type,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

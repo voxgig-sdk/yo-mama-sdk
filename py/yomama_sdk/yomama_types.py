@@ -37,4 +37,4 @@ class Joke(TypedDict):
 
 
 class JokeListMatch(TypedDict, total=False):
-    joke: str
+    type: str
