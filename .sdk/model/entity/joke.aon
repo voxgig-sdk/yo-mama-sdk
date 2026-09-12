@@ -32,8 +32,10 @@ main: kit: entity: joke: {
           }
           method: "GET"
           orig: "/jokes"
-          parts: [
-            "jokes"
+          segments: [
+            {
+              lit: "jokes"
+            }
           ]
           select: {
             exist: [

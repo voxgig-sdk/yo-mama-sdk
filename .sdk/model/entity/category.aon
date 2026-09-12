@@ -20,8 +20,10 @@ main: kit: entity: category: {
         {
           method: "GET"
           orig: "/categories"
-          parts: [
-            "categories"
+          segments: [
+            {
+              lit: "categories"
+            }
           ]
           transform: {
             req: "`reqdata`"

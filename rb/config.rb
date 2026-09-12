@@ -61,14 +61,19 @@ module YoMamaConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/categories",
-                  "parts" => [
-                    "categories",
+                  "segments" => [
+                    {
+                      "lit" => "categories",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.categories`",
                   },
+                  "parts" => [
+                    "categories",
+                  ],
                 },
               ],
             },
@@ -97,12 +102,13 @@ module YoMamaConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
-                  "parts" => [],
+                  "segments" => [],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [],
                 },
               ],
             },
@@ -140,8 +146,10 @@ module YoMamaConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/jokes",
-                  "parts" => [
-                    "jokes",
+                  "segments" => [
+                    {
+                      "lit" => "jokes",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -152,6 +160,9 @@ module YoMamaConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "jokes",
+                  ],
                 },
               ],
             },
