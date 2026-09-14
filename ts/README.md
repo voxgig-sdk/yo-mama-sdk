@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { YoMamaSDK } from '@voxgig-sdk/yo-mama'
+import { YoMamaSDK } from '@voxgig-sdk/yo-mama-sdk'
 
 const client = new YoMamaSDK()
 ```
@@ -473,7 +473,7 @@ yo-mama/
 Import the SDK from the package root:
 
 ```ts
-import { YoMamaSDK } from '@voxgig-sdk/yo-mama'
+import { YoMamaSDK } from '@voxgig-sdk/yo-mama-sdk'
 ```
 
 ### Entity state

@@ -105,7 +105,7 @@ local results, err = client:Category():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
+| TypeScript | `@voxgig-sdk/yo-mama-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
 | Python | `voxgig-sdk-yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
 | PHP | `voxgig-sdk/yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/yo-mama-sdk/go` | `go get github.com/voxgig-sdk/yo-mama-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Category():list()
 ### TypeScript
 
 ```ts
-import { YoMamaSDK } from '@voxgig-sdk/yo-mama'
+import { YoMamaSDK } from '@voxgig-sdk/yo-mama-sdk'
 
 const client = new YoMamaSDK()
 
