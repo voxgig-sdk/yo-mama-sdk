@@ -18,6 +18,12 @@ main: kit: entity: category: {
       name: "list"
       points: [
         {
+          contract: {
+            id: "GET /categories"
+            json: "{\"operationId\":\"getCategories\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"categories\":[\"fat\",\"stupid\",\"ugly\",\"poor\",\"old\",\"hairy\",\"bald\",\"tall\",\"short\",\"skinny\"]},\"schema\":{\"properties\":{\"categories\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with available categories\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/categories"
           segments: [

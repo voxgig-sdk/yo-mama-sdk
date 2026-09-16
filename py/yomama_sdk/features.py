@@ -1,12 +1,18 @@
 # YoMama SDK feature factory
 
 from yomama_sdk.feature.base_feature import YoMamaBaseFeature
+from yomama_sdk.feature.ratelimit_feature import YoMamaRatelimitFeature
+from yomama_sdk.feature.retry_feature import YoMamaRetryFeature
 from yomama_sdk.feature.test_feature import YoMamaTestFeature
+from yomama_sdk.feature.timeout_feature import YoMamaTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: YoMamaBaseFeature(),
+    "ratelimit": lambda: YoMamaRatelimitFeature(),
+    "retry": lambda: YoMamaRetryFeature(),
     "test": lambda: YoMamaTestFeature(),
+    "timeout": lambda: YoMamaTimeoutFeature(),
 }
 
 
