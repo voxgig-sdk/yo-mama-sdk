@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicCategoryFlow.aon"
-@"BasicGetRandomJokeFlow.aon"
-@"BasicJokeFlow.aon"
+@"./BasicCategoryFlow.aon"
+@"./BasicGetRandomJokeFlow.aon"
+@"./BasicJokeFlow.aon"

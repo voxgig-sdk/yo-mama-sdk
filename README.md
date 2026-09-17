@@ -105,12 +105,12 @@ local results, err = client:Category():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/yo-mama-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
-| Python | `voxgig-sdk-yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
-| PHP | `voxgig-sdk/yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
+| TypeScript | `@voxgig-sdk/yo-mama-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/tags) |
+| Python | `voxgig-sdk-yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/tags) |
+| PHP | `voxgig-sdk/yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/yo-mama-sdk/go` | `go get github.com/voxgig-sdk/yo-mama-sdk/go@latest` |
-| Ruby | `voxgig-sdk-yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
-| Lua | `voxgig-sdk-yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/releases) |
+| Ruby | `voxgig-sdk-yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/tags) |
+| Lua | `voxgig-sdk-yo-mama` | publish pending — [install from git tag](https://github.com/voxgig-sdk/yo-mama-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/yo-mama-sdk/go-cli` | `go install github.com/voxgig-sdk/yo-mama-sdk/go-cli/cmd/yo-mama@latest` |
 | Go MCP server | `github.com/voxgig-sdk/yo-mama-sdk/go-mcp` | `go get github.com/voxgig-sdk/yo-mama-sdk/go-mcp@latest` |
 

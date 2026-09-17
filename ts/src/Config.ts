@@ -127,15 +127,15 @@ class Config {
 
     entity: {
       
-      category: {
-      },
-
-      get_random_joke: {
-      },
-
-      joke: {
-      },
-
+        category: {
+        },
+  
+        get_random_joke: {
+        },
+  
+        joke: {
+        },
+  
     }
   }
 
