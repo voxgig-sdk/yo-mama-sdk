@@ -22,66 +22,8 @@
   "requests": {
     "GET /jokes": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getJokesByCategory",
-        "parameters": [
-          {
-            "description": "The category of jokes to retrieve (e.g., fat, stupid, ugly, poor, old)",
-            "in": "query",
-            "name": "type",
-            "required": false,
-            "schema": {
-              "enum": [
-                "fat",
-                "stupid",
-                "ugly",
-                "poor",
-                "old",
-                "hairy",
-                "bald",
-                "tall",
-                "short",
-                "skinny"
-              ],
-              "type": "string"
-            }
-          }
-        ],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "example": [
-                  {
-                    "joke": "Yo mama is so fat, when she skips a meal, the stock market drops."
-                  },
-                  {
-                    "joke": "Yo mama is so fat, she has her own zip code."
-                  }
-                ],
-                "schema": {
-                  "items": {
-                    "properties": {
-                      "joke": {
-                        "description": "The joke text",
-                        "type": "string"
-                      }
-                    },
-                    "required": [
-                      "joke"
-                    ],
-                    "type": "object"
-                  },
-                  "type": "array"
-                }
-              }
-            },
-            "description": "Successful response with a list of jokes"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }

@@ -19,7 +19,6 @@ import type {
   CategoryListMatch,
 } from '../YoMamaTypes'
 
-// TODO: needs Entity superclass
 class CategoryEntity extends YoMamaEntityBase<Category> {
 
   constructor(client: YoMamaSDK, entopts: any) {

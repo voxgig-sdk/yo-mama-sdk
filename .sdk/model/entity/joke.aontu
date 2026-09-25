@@ -1,0 +1,62 @@
+# Entity: joke
+
+main: kit: entity: joke: {
+
+  alias: field: {}
+
+  fields: {
+    joke: {
+      h: "Joke"
+      n: "joke"
+      r: true
+      sh: "The joke text"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "joke"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /jokes"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "type"
+                or: "type"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/jokes"
+          q: {
+            exist: [
+              "type"
+            ]
+          }
+          s: [
+            {
+              lit: "jokes"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

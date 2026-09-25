@@ -19,7 +19,6 @@ import type {
   JokeListMatch,
 } from '../YoMamaTypes'
 
-// TODO: needs Entity superclass
 class JokeEntity extends YoMamaEntityBase<Joke> {
 
   constructor(client: YoMamaSDK, entopts: any) {

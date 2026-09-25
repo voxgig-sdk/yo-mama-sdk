@@ -101,6 +101,7 @@ module YoMamaConfig
           "fields" => [
             {
               "name" => "categories",
+              "title" => "Categories",
               "type" => "`$ARRAY`",
             },
           ],
@@ -111,7 +112,6 @@ module YoMamaConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/categories",
@@ -120,14 +120,16 @@ module YoMamaConfig
                       "lit" => "categories",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "categories",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.categories`",
                   },
-                  "parts" => [
-                    "categories",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -140,9 +142,10 @@ module YoMamaConfig
           "fields" => [
             {
               "name" => "joke",
+              "title" => "Joke",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The joke text",
-              "type" => "`$STRING`",
             },
           ],
           "name" => "get_random_joke",
@@ -152,17 +155,18 @@ module YoMamaConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
                   "segments" => [],
-                  "select" => {},
+                  "parts" => [],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
@@ -175,9 +179,10 @@ module YoMamaConfig
           "fields" => [
             {
               "name" => "joke",
+              "title" => "Joke",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The joke text",
-              "type" => "`$STRING`",
             },
           ],
           "name" => "joke",
@@ -187,16 +192,6 @@ module YoMamaConfig
               "name" => "list",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "type",
-                        "orig" => "type",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/jokes",
@@ -205,18 +200,29 @@ module YoMamaConfig
                       "lit" => "jokes",
                     },
                   ],
+                  "parts" => [
+                    "jokes",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "type",
+                        "orig" => "type",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "type",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "jokes",
-                  ],
                 },
               ],
             },

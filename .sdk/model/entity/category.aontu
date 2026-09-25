@@ -1,0 +1,45 @@
+# Entity: category
+
+main: kit: entity: category: {
+
+  alias: field: {}
+
+  fields: {
+    categories: {
+      h: "Categories"
+      n: "categories"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "category"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /categories"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/categories"
+          s: [
+            {
+              lit: "categories"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.categories`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

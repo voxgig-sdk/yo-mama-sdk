@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JokeEntity = void 0;
 const YoMamaEntityBase_1 = require("../YoMamaEntityBase");
-// TODO: needs Entity superclass
 class JokeEntity extends YoMamaEntityBase_1.YoMamaEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

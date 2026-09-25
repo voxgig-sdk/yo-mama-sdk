@@ -89,6 +89,7 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "categories",
+            ["title"] = "Categories",
             ["type"] = "`$ARRAY`",
           },
         },
@@ -99,7 +100,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/categories",
@@ -108,14 +108,16 @@ local function make_config()
                     ["lit"] = "categories",
                   },
                 },
-                ["select"] = {},
+                ["parts"] = {
+                  "categories",
+                },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.categories`",
                 },
-                ["parts"] = {
-                  "categories",
-                },
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },
@@ -128,9 +130,10 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "joke",
+            ["title"] = "Joke",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The joke text",
-            ["type"] = "`$STRING`",
           },
         },
         ["name"] = "get_random_joke",
@@ -140,17 +143,18 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/",
                 ["segments"] = {},
-                ["select"] = {},
+                ["parts"] = {},
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {},
+                ["args"] = {},
+                ["select"] = {},
               },
             },
           },
@@ -163,9 +167,10 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "joke",
+            ["title"] = "Joke",
+            ["type"] = "`$STRING`",
             ["req"] = true,
             ["short"] = "The joke text",
-            ["type"] = "`$STRING`",
           },
         },
         ["name"] = "joke",
@@ -175,16 +180,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "type",
-                      ["orig"] = "type",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/jokes",
@@ -193,17 +188,28 @@ local function make_config()
                     ["lit"] = "jokes",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "type",
-                  },
+                ["parts"] = {
+                  "jokes",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "jokes",
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "type",
+                  },
                 },
               },
             },

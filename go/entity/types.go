@@ -1,7 +1,7 @@
 // Typed models for the YoMama SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,7 +14,6 @@ import (
 
 // Category is the typed data model for the category entity.
 type Category struct {
-	Categories *[]any `json:"categories,omitempty"`
 }
 
 // CategoryListMatch is the typed request payload for Category.ListTyped.
@@ -24,7 +23,6 @@ type CategoryListMatch struct {
 
 // GetRandomJoke is the typed data model for the get_random_joke entity.
 type GetRandomJoke struct {
-	Joke string `json:"joke"`
 }
 
 // GetRandomJokeLoadMatch is the typed request payload for GetRandomJoke.LoadTyped.
@@ -34,7 +32,6 @@ type GetRandomJokeLoadMatch struct {
 
 // Joke is the typed data model for the joke entity.
 type Joke struct {
-	Joke string `json:"joke"`
 }
 
 // JokeListMatch is the typed request payload for Joke.ListTyped.

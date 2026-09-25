@@ -25,10 +25,6 @@ import {
 } from '../../utility'
 
 
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 loadEnvLocal(__dirname + '/../../../.env.local')
 
 
@@ -55,7 +51,7 @@ describe('CategoryEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"categories","req":false,"type":"`$ARRAY`","index$":0}],"name":"category","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{},"contract":{"id":"GET /categories","json":"{\"operationId\":\"getCategories\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"categories\":[\"fat\",\"stupid\",\"ugly\",\"poor\",\"old\",\"hairy\",\"bald\",\"tall\",\"short\",\"skinny\"]},\"schema\":{\"properties\":{\"categories\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response with available categories\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/categories","segments":[{"lit":"categories"}],"select":{},"transform":{"req":"`reqdata`","res":"`body.categories`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"category","name__orig":"category","Name":"Category","name_":"category","name-":"category","NAME":"CATEGORY","index$":0}, {"active":true,"entity":"category","key$":"BasicCategoryFlow","kind":"basic","name":"BasicCategoryFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"category_ref01"}}],"index$":0}]}, 'Category')
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"categories":{"a":true,"h":"Categories","n":"categories","r":false,"t":"`$ARRAY`","key$":"categories","index$":0}},"name":"category","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /categories","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/categories","q":{},"r":{},"s":[{"lit":"categories"}],"t":{"req":"`reqdata`","res":"`body.categories`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"category","name__orig":"category","Name":"Category","name_":"category","name-":"category","NAME":"CATEGORY","index$":0}, {"active":true,"entity":"category","key$":"BasicCategoryFlow","kind":"basic","name":"BasicCategoryFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"category_ref01"}}],"index$":0}]}, 'Category', {"GET /categories":{"protocol":"http","operationId":"getCategories","responses":{"200":{"description":"Successful response with available categories","content":{"application/json":{"schema":{"type":"object","properties":{"categories":{"items":{"type":"string"},"key$":"categories","type":"array"}},"index$":0},"example":{"categories":["fat","stupid","ugly","poor","old","hairy","bald","tall","short","skinny"]}}}}},"parameters":[],"securitySource":"unspecified"}})
     }
     const client = setup.client
     const struct = setup.struct

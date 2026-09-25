@@ -25,36 +25,8 @@
   "requests": {
     "GET /": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getRandomJoke",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "example": {
-                  "joke": "Yo mama is so fat, when she skips a meal, the stock market drops."
-                },
-                "schema": {
-                  "properties": {
-                    "joke": {
-                      "description": "The joke text",
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "joke"
-                  ],
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Successful response with a random joke"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }

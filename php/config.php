@@ -115,6 +115,7 @@ class YoMamaConfig
           'fields' => [
             [
               'name' => 'categories',
+              'title' => 'Categories',
               'type' => '`$ARRAY`',
             ],
           ],
@@ -125,7 +126,6 @@ class YoMamaConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/categories',
@@ -134,14 +134,16 @@ class YoMamaConfig
                       'lit' => 'categories',
                     ],
                   ],
-                  'select' => [],
+                  'parts' => [
+                    'categories',
+                  ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.categories`',
                   ],
-                  'parts' => [
-                    'categories',
-                  ],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],
@@ -154,9 +156,10 @@ class YoMamaConfig
           'fields' => [
             [
               'name' => 'joke',
+              'title' => 'Joke',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The joke text',
-              'type' => '`$STRING`',
             ],
           ],
           'name' => 'get_random_joke',
@@ -166,17 +169,18 @@ class YoMamaConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/',
                   'segments' => [],
-                  'select' => [],
+                  'parts' => [],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],
@@ -189,9 +193,10 @@ class YoMamaConfig
           'fields' => [
             [
               'name' => 'joke',
+              'title' => 'Joke',
+              'type' => '`$STRING`',
               'req' => true,
               'short' => 'The joke text',
-              'type' => '`$STRING`',
             ],
           ],
           'name' => 'joke',
@@ -201,16 +206,6 @@ class YoMamaConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'type',
-                        'orig' => 'type',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/jokes',
@@ -219,17 +214,28 @@ class YoMamaConfig
                       'lit' => 'jokes',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'type',
-                    ],
+                  'parts' => [
+                    'jokes',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'jokes',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'type',
+                        'orig' => 'type',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'type',
+                    ],
                   ],
                 ],
               ],

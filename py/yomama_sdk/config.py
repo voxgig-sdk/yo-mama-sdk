@@ -118,6 +118,7 @@ def make_config():
         "fields": [
           {
             "name": "categories",
+            "title": "Categories",
             "type": "`$ARRAY`",
           },
         ],
@@ -128,7 +129,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/categories",
@@ -137,14 +137,16 @@ def make_config():
                     "lit": "categories",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "categories",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.categories`",
                 },
-                "parts": [
-                  "categories",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -157,9 +159,10 @@ def make_config():
         "fields": [
           {
             "name": "joke",
+            "title": "Joke",
+            "type": "`$STRING`",
             "req": True,
             "short": "The joke text",
-            "type": "`$STRING`",
           },
         ],
         "name": "get_random_joke",
@@ -169,17 +172,18 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/",
                 "segments": [],
-                "select": {},
+                "parts": [],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [],
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -192,9 +196,10 @@ def make_config():
         "fields": [
           {
             "name": "joke",
+            "title": "Joke",
+            "type": "`$STRING`",
             "req": True,
             "short": "The joke text",
-            "type": "`$STRING`",
           },
         ],
         "name": "joke",
@@ -204,16 +209,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "kind": "query",
-                      "name": "type",
-                      "orig": "type",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/jokes",
@@ -222,18 +217,29 @@ def make_config():
                     "lit": "jokes",
                   },
                 ],
+                "parts": [
+                  "jokes",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "type",
+                      "orig": "type",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "type",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "jokes",
-                ],
               },
             ],
           },

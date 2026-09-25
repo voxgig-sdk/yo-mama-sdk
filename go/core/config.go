@@ -93,6 +93,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "categories",
+						"title": "Categories",
 						"type": "`$ARRAY`",
 					},
 				},
@@ -103,7 +104,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/categories",
@@ -112,14 +112,16 @@ func MakeConfig() map[string]any {
 										"lit": "categories",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"categories",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.categories`",
 								},
-								"parts": []any{
-									"categories",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -132,9 +134,10 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "joke",
+						"title": "Joke",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The joke text",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "get_random_joke",
@@ -144,17 +147,18 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/",
 								"segments": []any{},
-								"select": map[string]any{},
+								"parts": []any{},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -167,9 +171,10 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "joke",
+						"title": "Joke",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The joke text",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "joke",
@@ -179,16 +184,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "type",
-											"orig": "type",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/jokes",
@@ -197,17 +192,28 @@ func MakeConfig() map[string]any {
 										"lit": "jokes",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"type",
-									},
+								"parts": []any{
+									"jokes",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"jokes",
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "type",
+											"orig": "type",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"type",
+									},
 								},
 							},
 						},

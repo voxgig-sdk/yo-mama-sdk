@@ -22,46 +22,8 @@
   "requests": {
     "GET /categories": {
       "provenance": "operation-contract",
-      "contract": {
-        "operationId": "getCategories",
-        "parameters": [],
-        "protocol": "http",
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "example": {
-                  "categories": [
-                    "fat",
-                    "stupid",
-                    "ugly",
-                    "poor",
-                    "old",
-                    "hairy",
-                    "bald",
-                    "tall",
-                    "short",
-                    "skinny"
-                  ]
-                },
-                "schema": {
-                  "properties": {
-                    "categories": {
-                      "items": {
-                        "type": "string"
-                      },
-                      "type": "array"
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            },
-            "description": "Successful response with available categories"
-          }
-        },
-        "securitySource": "unspecified"
-      }
+      "version": 2,
+      "source": "openapi3"
     }
   }
 }

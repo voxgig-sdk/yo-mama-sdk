@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -116,6 +109,7 @@ class Config {
             "fields": [
                 {
                     "name": "categories",
+                    "title": "Categories",
                     "type": "`$ARRAY`"
                 }
             ],
@@ -126,7 +120,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/categories",
@@ -135,14 +128,16 @@ class Config {
                                     "lit": "categories"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "categories"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.categories`"
                             },
-                            "parts": [
-                                "categories"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -155,9 +150,10 @@ class Config {
             "fields": [
                 {
                     "name": "joke",
+                    "title": "Joke",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "The joke text",
-                    "type": "`$STRING`"
+                    "short": "The joke text"
                 }
             ],
             "name": "get_random_joke",
@@ -167,17 +163,18 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/",
                             "segments": [],
-                            "select": {},
+                            "parts": [],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": []
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -190,9 +187,10 @@ class Config {
             "fields": [
                 {
                     "name": "joke",
+                    "title": "Joke",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "The joke text",
-                    "type": "`$STRING`"
+                    "short": "The joke text"
                 }
             ],
             "name": "joke",
@@ -202,16 +200,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "type",
-                                        "orig": "type",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/jokes",
@@ -220,18 +208,29 @@ class Config {
                                     "lit": "jokes"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "type"
-                                ]
-                            },
+                            "parts": [
+                                "jokes"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "jokes"
-                            ]
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "type",
+                                        "orig": "type",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "type"
+                                ]
+                            }
                         }
                     ]
                 }

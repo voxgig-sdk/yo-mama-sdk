@@ -25,10 +25,6 @@ import {
 } from '../../utility'
 
 
-// AFTER the imports on purpose: TypeScript hoists `import` above any
-// statement in the emitted CommonJS, so a loader placed above them would
-// run only after every imported module had already been evaluated - and
-// anything reading process.env at module scope would miss these values.
 loadEnvLocal(__dirname + '/../../../.env.local')
 
 
@@ -55,7 +51,7 @@ describe('GetRandomJokeEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"name":"joke","req":true,"short":"The joke text","type":"`$STRING`","index$":0}],"name":"get_random_joke","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{},"contract":{"id":"GET /","json":"{\"operationId\":\"getRandomJoke\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"joke\":\"Yo mama is so fat, when she skips a meal, the stock market drops.\"},\"schema\":{\"properties\":{\"joke\":{\"description\":\"The joke text\",\"type\":\"string\"}},\"required\":[\"joke\"],\"type\":\"object\"}}},\"description\":\"Successful response with a random joke\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/","segments":[],"select":{},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"get_random_joke","name__orig":"get_random_joke","Name":"GetRandomJoke","name_":"get_random_joke","name-":"get-random-joke","NAME":"GET_RANDOM_JOKE","index$":1}, {"active":true,"entity":"get_random_joke","key$":"BasicGetRandomJokeFlow","kind":"basic","name":"BasicGetRandomJokeFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"get_random_joke_ref01","srcdatavar":"get_random_joke_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-get_random_joke_ref01"}}],"index$":0}]}, 'GetRandomJoke')
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"joke":{"a":true,"h":"Joke","n":"joke","r":true,"sh":"The joke text","t":"`$STRING`","key$":"joke","index$":0}},"name":"get_random_joke","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/","q":{},"r":{},"s":[],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"get_random_joke","name__orig":"get_random_joke","Name":"GetRandomJoke","name_":"get_random_joke","name-":"get-random-joke","NAME":"GET_RANDOM_JOKE","index$":1}, {"active":true,"entity":"get_random_joke","key$":"BasicGetRandomJokeFlow","kind":"basic","name":"BasicGetRandomJokeFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"get_random_joke_ref01","srcdatavar":"get_random_joke_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-get_random_joke_ref01"}}],"index$":0}]}, 'GetRandomJoke', {"GET /":{"protocol":"http","operationId":"getRandomJoke","responses":{"200":{"description":"Successful response with a random joke","content":{"application/json":{"schema":{"type":"object","properties":{"joke":{"description":"The joke text","key$":"joke","type":"string"}},"required":["joke"],"x-ref":"#/components/schemas/Joke","index$":0},"example":{"joke":"Yo mama is so fat, when she skips a meal, the stock market drops."}}}}},"parameters":[],"securitySource":"unspecified"}})
     }
     const client = setup.client
     const struct = setup.struct

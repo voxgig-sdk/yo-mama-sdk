@@ -43,7 +43,7 @@ local categorys, err = client:Category():list()
 if err then error(err) end
 
 for _, item in ipairs(categorys) do
-  print(item["categories"])
+  print(item)
 end
 ```
 

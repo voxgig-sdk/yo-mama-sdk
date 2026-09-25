@@ -1,0 +1,41 @@
+# Entity: get_random_joke
+
+main: kit: entity: get_random_joke: {
+
+  alias: field: {}
+
+  fields: {
+    joke: {
+      h: "Joke"
+      n: "joke"
+      r: true
+      sh: "The joke text"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "get_random_joke"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/"
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
