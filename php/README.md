@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/yo-mama-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/yo-mama-sdk/releases](https://github.com/voxgig-sdk/yo-mama-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/yo-mama-sdk
+composer config repositories.yo-mama-sdk path ./yo-mama-sdk/php
+composer require voxgig-sdk/yo-mama-sdk:@dev
+```
 
 
 ## Tutorial: your first API call

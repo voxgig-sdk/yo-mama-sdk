@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 YoMamaUtility.registrar = ->(u) {
   u.clean = YoMamaUtilities::Clean
+  u.clean_add = YoMamaUtilities::CleanAdd
+  u.clean_explain = YoMamaUtilities::CleanExplain
   u.done = YoMamaUtilities::Done
   u.make_error = YoMamaUtilities::MakeError
   u.feature_add = YoMamaUtilities::FeatureAdd

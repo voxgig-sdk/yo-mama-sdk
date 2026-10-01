@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 YoMamaUtility::setRegistrar(function (YoMamaUtility $u): void {
     $u->clean = [YoMamaClean::class, 'call'];
+    $u->clean_add = [YoMamaClean::class, 'add'];
+    $u->clean_explain = [YoMamaDone::class, 'clean_explain'];
     $u->done = [YoMamaDone::class, 'call'];
     $u->make_error = [YoMamaMakeError::class, 'call'];
     $u->feature_add = [YoMamaFeatureAdd::class, 'call'];
