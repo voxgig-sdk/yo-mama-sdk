@@ -20,7 +20,7 @@ export YO_MAMA_APIKEY=sk_live_xxx
 
 # 4. Each command line is ONE boru expression, run against the API:
 ./yo-mama-cli list category
-./yo-mama-cli list get_random_joke
+./yo-mama-cli list joke
 
 # 5. Override the API base URL for a single call
 YO_MAMA_BASE=https://api.example.com ./yo-mama-cli list category

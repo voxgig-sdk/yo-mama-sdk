@@ -27,6 +27,10 @@ main: kit: entity: get_random_joke: {
           }
           m: "GET"
           o: "/"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           t: {
             req: "`reqdata`"
             res: "`body`"

@@ -3,5 +3,15 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "API for retrieving jokes by random, category, or list based on Yo Mama jokes. No authentication required.",
+      "Production server",
+      "Successful response with a list of jokes",
+      "Successful response with a random joke",
+      "Successful response with available categories",
+      "The joke text"
+    ]
+  }
 }

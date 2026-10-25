@@ -38,10 +38,9 @@ main: kit: entity: joke: {
           }
           m: "GET"
           o: "/jokes"
-          q: {
-            exist: [
-              "type"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
